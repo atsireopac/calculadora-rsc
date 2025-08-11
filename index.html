@@ -71,405 +71,1686 @@
             
             <form id="form-competencias">
                 <!-- Formação Acadêmica -->
+                
                 <div class="categoria-section">
-                    <h3><i class="fas fa-graduation-cap"></i> Formação Acadêmica e Pedagógica</h3>
+                    <h3><i class="fas fa-cogs"></i> Competências Administrativas e Técnicas</h3>
                     <div class="competencias-grid">
+                        <!-- Item 1 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="1.0" data-categoria="formacao" id="graduacao">
+                                    <input type="checkbox" data-pontos="0.10" data-categoria="administrativa" id="gestao_contratos">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Graduação</strong>
-                                    <span class="pontos">1.0 pts</span>
-                                    <p>Curso de graduação na área de atuação ou áreas afins</p>
+                                    <strong 
+                                    title="Documentação emitida pela IFE, designando o servidor como gestor 
+                                    e/ou fiscal de contrato, convênio ou
+                                    acordo, com a especificação dos
+                                    objetos geridos;
+                                    Declaração ou Certidão de
+                                    Supervisores ou Gestores:
+                                    assinado por gestores ou chefias
+                                    deatestando a atuação do servidor
+                                    como gestor e/ou fiscal de
+                                    contratos, convênios ou acordos,
+                                    com o respectivo período de
+                                    atuação">Atuação na área de gestão e/ou fiscalização de contratos, convênios e acordos</strong>
+                                    <span class="pontos">0.10 pts/mês</span>
+                                    <p>
+                                    Atuação na gestão e/ou fiscalização de contratos,
+                                    convênios e acordos firmados pela Instituição
+                                    Federal de Ensino (IFE) com fornecedores,
+                                    prestadores de serviços, instituições públicas ou
+                                    privadas, tanto nacionais quanto internacionais.
+                                    </p>
+                                    <input type="number" class="quantidade-input" placeholder="Mês" min="0" max="600" data-for="gestao_contratos">
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.5" data-categoria="formacao" id="pos_graduacao">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Pós-graduação lato sensu</strong>
-                                    <span class="pontos">0.5 pts</span>
-                                    <p>Especialização, MBA ou curso de pós-graduação lato sensu</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="1.5" data-categoria="formacao" id="mestrado">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Mestrado</strong>
-                                    <span class="pontos">1.5 pts</span>
-                                    <p>Curso de mestrado na área de atuação ou áreas afins</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="2.0" data-categoria="formacao" id="doutorado">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Doutorado</strong>
-                                    <span class="pontos">2.0 pts</span>
-                                    <p>Curso de doutorado na área de atuação ou áreas afins</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="1.0" data-categoria="formacao" id="pos_doutorado">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Pós-doutorado</strong>
-                                    <span class="pontos">1.0 pts</span>
-                                    <p>Programa de pós-doutorado na área de atuação</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Experiência Profissional -->
-                <div class="categoria-section">
-                    <h3><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
-                    <div class="competencias-grid">
+                        <!-- Item 2 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.1" data-categoria="experiencia" id="exp_publica">
+                                    <input type="checkbox" data-pontos="0.05" data-categoria="administrativa" id="suplente_contratos">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Experiência no Serviço Público (por mês)</strong>
-                                    <span class="pontos">0.1 pts/mês</span>
-                                    <p>Tempo de experiência em órgãos públicos na área de atuação</p>
-                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="exp_publica">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.05" data-categoria="experiencia" id="exp_privada">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Experiência na Iniciativa Privada (por mês)</strong>
+                                    <strong title="Documentação emitida pela IFE,
+designando o servidor como gestor
+e/ou fiscal de contrato, convênio ou
+acordo, com a especificação dos
+objetos geridos;
+Declaração ou Certidão de
+Supervisores ou Gestores:
+assinado por gestores ou chefias
+atestando a atuação do servidor
+como gestor e/ou fiscal de
+contratos, convênios ou acordos,
+com o respectivo período de
+atuação.">Atuação como suplente na área de gestão e/ou fiscalização de contratos, convênios e acordos</strong>
                                     <span class="pontos">0.05 pts/mês</span>
-                                    <p>Tempo de experiência em empresas privadas na área de atuação</p>
-                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="exp_privada">
+                                    <p>Atuação como suplente na gestão e/ou fiscalização
+de contratos, convênios e acordos firmados pela
+Instituição Federal de Ensino (IFE) com
+fornecedores, prestadores de serviços, instituições
+públicas ou privadas, tanto nacionais quanto
+internacionais.</p>
+                                    <input type="number" class="quantidade-input" placeholder="Mês" min="0" max="600" data-for="suplente_contratos">
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.2" data-categoria="experiencia" id="cargo_chefia">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Exercício de Cargo de Chefia (por mês)</strong>
-                                    <span class="pontos">0.2 pts/mês</span>
-                                    <p>Tempo exercendo função de chefia, coordenação ou direção</p>
-                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="cargo_chefia">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.3" data-categoria="experiencia" id="consultoria">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Atividade de Consultoria (por projeto)</strong>
-                                    <span class="pontos">0.3 pts/projeto</span>
-                                    <p>Prestação de serviços de consultoria na área de especialização</p>
-                                    <input type="number" class="quantidade-input" placeholder="Projetos" min="0" max="100" data-for="consultoria">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Capacitação e Desenvolvimento -->
-                <div class="categoria-section">
-                    <h3><i class="fas fa-book-open"></i> Capacitação e Desenvolvimento</h3>
-                    <div class="competencias-grid">
+                        <!-- Item 3 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.1" data-categoria="capacitacao" id="curso_capacitacao">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="corregedoria">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Cursos de Capacitação (por hora)</strong>
-                                    <span class="pontos">0.1 pts/hora</span>
-                                    <p>Participação em cursos de capacitação relacionados à área</p>
-                                    <input type="number" class="quantidade-input" placeholder="Horas" min="0" max="2000" data-for="curso_capacitacao">
+                                    <strong title="Portaria de designação, contendo a
+informação da natureza da
+comissão/atividade, bem como o
+período com início e fim.
+">Atuação em comissões de corregedoria ou correição</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Atuação do servidor em atividades de corregedoria
+ou correição</p>
+                                    <input type="number" class="quantidade-input" placeholder="Portaria" min="0" max="600" data-for="corregedoria">
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.2" data-categoria="capacitacao" id="evento_tecnico">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Participação em Eventos Técnicos</strong>
-                                    <span class="pontos">0.2 pts/evento</span>
-                                    <p>Congressos, seminários, workshops na área de atuação</p>
-                                    <input type="number" class="quantidade-input" placeholder="Eventos" min="0" max="100" data-for="evento_tecnico">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.5" data-categoria="capacitacao" id="palestrante">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Atuação como Palestrante</strong>
-                                    <span class="pontos">0.5 pts/palestra</span>
-                                    <p>Ministrar palestras em eventos técnicos ou acadêmicos</p>
-                                    <input type="number" class="quantidade-input" placeholder="Palestras" min="0" max="100" data-for="palestrante">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.1" data-categoria="capacitacao" id="instrutor">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Atuação como Instrutor (por hora)</strong>
-                                    <span class="pontos">0.1 pts/hora</span>
-                                    <p>Ministrar cursos ou treinamentos na área de especialização</p>
-                                    <input type="number" class="quantidade-input" placeholder="Horas" min="0" max="2000" data-for="instrutor">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Produção Técnica e Científica -->
-                <div class="categoria-section">
-                    <h3><i class="fas fa-flask"></i> Produção Técnica e Científica</h3>
-                    <div class="competencias-grid">
+                        <!-- Item 4 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="1.0" data-categoria="producao" id="artigo_periodico">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="processo_licitatorio">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Artigo em Periódico</strong>
-                                    <span class="pontos">1.0 pts/artigo</span>
-                                    <p>Publicação de artigos em revistas técnicas ou científicas</p>
-                                    <input type="number" class="quantidade-input" placeholder="Artigos" min="0" max="100" data-for="artigo_periodico">
+                                    <strong>Atuação em processo licitatório de aquisição e contratação</strong>
+                                    <span class="pontos">1.00 pts/processo</span>
+                                    <p>Participação em processos licitatórios</p>
+                                    <input type="number" class="quantidade-input" placeholder="Processos" min="0" max="50" data-for="processo_licitatorio">
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="2.0" data-categoria="producao" id="livro_autoria">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Livro - Autoria</strong>
-                                    <span class="pontos">2.0 pts/livro</span>
-                                    <p>Publicação de livro como autor principal</p>
-                                    <input type="number" class="quantidade-input" placeholder="Livros" min="0" max="50" data-for="livro_autoria">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.5" data-categoria="producao" id="capitulo_livro">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Capítulo de Livro</strong>
-                                    <span class="pontos">0.5 pts/capítulo</span>
-                                    <p>Publicação de capítulo em livro técnico ou científico</p>
-                                    <input type="number" class="quantidade-input" placeholder="Capítulos" min="0" max="100" data-for="capitulo_livro">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.3" data-categoria="producao" id="trabalho_evento">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Trabalho em Evento Científico</strong>
-                                    <span class="pontos">0.3 pts/trabalho</span>
-                                    <p>Apresentação de trabalhos em congressos ou eventos</p>
-                                    <input type="number" class="quantidade-input" placeholder="Trabalhos" min="0" max="100" data-for="trabalho_evento">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="1.5" data-categoria="producao" id="patente">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Patente ou Registro</strong>
-                                    <span class="pontos">1.5 pts/registro</span>
-                                    <p>Registro de patente ou propriedade intelectual</p>
-                                    <input type="number" class="quantidade-input" placeholder="Registros" min="0" max="50" data-for="patente">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Conhecimento em Idiomas -->
-                <div class="categoria-section">
-                    <h3><i class="fas fa-language"></i> Conhecimento em Idiomas</h3>
-                    <div class="competencias-grid">
+                        <!-- Item 5 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.2" data-categoria="idiomas" id="idioma_basico">
+                                    <input type="checkbox" data-pontos="6.25" data-categoria="administrativa" id="desenvolvimento_tecnologias">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Idioma Estrangeiro - Nível Básico</strong>
-                                    <span class="pontos">0.2 pts/idioma</span>
-                                    <p>Conhecimento básico em idioma estrangeiro</p>
-                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_basico">
+                                    <strong>Desenvolvimento de tecnologias e soluções práticas que tenham impacto institucional</strong>
+                                    <span class="pontos">6.25 pts/desenvolvimento</span>
+                                    <p>Criação de soluções tecnológicas com impacto institucional</p>
+                                    <input type="number" class="quantidade-input" placeholder="Desenvolvimentos" min="0" max="10" data-for="desenvolvimento_tecnologias">
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.4" data-categoria="idiomas" id="idioma_intermediario">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Idioma Estrangeiro - Nível Intermediário</strong>
-                                    <span class="pontos">0.4 pts/idioma</span>
-                                    <p>Conhecimento intermediário em idioma estrangeiro</p>
-                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_intermediario">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.6" data-categoria="idiomas" id="idioma_avancado">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Idioma Estrangeiro - Nível Avançado</strong>
-                                    <span class="pontos">0.6 pts/idioma</span>
-                                    <p>Conhecimento avançado em idioma estrangeiro</p>
-                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_avancado">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="competencia-item">
-                            <div class="checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="1.0" data-categoria="idiomas" id="idioma_fluente">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="competencia-info">
-                                    <strong>Idioma Estrangeiro - Fluente</strong>
-                                    <span class="pontos">1.0 pts/idioma</span>
-                                    <p>Fluência comprovada em idioma estrangeiro</p>
-                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_fluente">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Conhecimentos Tecnológicos -->
-                <div class="categoria-section">
-                    <h3><i class="fas fa-laptop-code"></i> Conhecimentos Tecnológicos</h3>
-                    <div class="competencias-grid">
+                        <!-- Item 6 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.5" data-categoria="tecnologia" id="certificacao_ti">
+                                    <input type="checkbox" data-pontos="0.125" data-categoria="administrativa" id="elaboracao_editais">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Certificação em TI</strong>
-                                    <span class="pontos">0.5 pts/certificação</span>
-                                    <p>Certificações técnicas em tecnologia da informação</p>
-                                    <input type="number" class="quantidade-input" placeholder="Certificações" min="0" max="50" data-for="certificacao_ti">
+                                    <strong>Elaboração de editais</strong>
+                                    <span class="pontos">0.125 pts/edital</span>
+                                    <p>Elaboração de editais para processos institucionais</p>
+                                    <input type="number" class="quantidade-input" placeholder="Editais" min="0" max="200" data-for="elaboracao_editais">
                                 </div>
                             </div>
                         </div>
-                        
+
+                        <!-- Item 7 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="0.3" data-categoria="tecnologia" id="sistema_especializado">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="notas_tecnicas">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Conhecimento em Sistema Especializado</strong>
-                                    <span class="pontos">0.3 pts/sistema</span>
-                                    <p>Domínio de sistemas específicos da área de atuação</p>
-                                    <input type="number" class="quantidade-input" placeholder="Sistemas" min="0" max="50" data-for="sistema_especializado">
+                                    <strong>Elaboração de notas técnicas, chamadas públicas, pareceres técnicos, nota informativa, manuais e roteiros técnicos ou documentação similar</strong>
+                                    <span class="pontos">1.25 pts/documento</span>
+                                    <p>Elaboração de documentação técnica institucional</p>
+                                    <input type="number" class="quantidade-input" placeholder="Documentos" min="0" max="100" data-for="notas_tecnicas">
                                 </div>
                             </div>
                         </div>
-                        
+
+                        <!-- Item 8 -->
                         <div class="competencia-item">
                             <div class="checkbox-container">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" data-pontos="1.0" data-categoria="tecnologia" id="desenvolvimento_sistema">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="elogio_profissional">
                                     <span class="checkmark"></span>
                                 </label>
                                 <div class="competencia-info">
-                                    <strong>Desenvolvimento de Sistema</strong>
-                                    <span class="pontos">1.0 pts/projeto</span>
-                                    <p>Participação no desenvolvimento de sistemas ou aplicações</p>
-                                    <input type="number" class="quantidade-input" placeholder="Projetos" min="0" max="50" data-for="desenvolvimento_sistema">
+                                    <strong>Elogio profissional</strong>
+                                    <span class="pontos">1.25 pts/elogio</span>
+                                    <p>Reconhecimento formal por desempenho profissional</p>
+                                    <input type="number" class="quantidade-input" placeholder="Elogios" min="0" max="50" data-for="elogio_profissional">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 9 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="comissao_organizadora">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como membro de comissão organizadora de processo seletivo, vestibular, concurso ou exames públicos</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Organização de processos seletivos e concursos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="50" data-for="comissao_organizadora">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 10 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="comissao_responsavel">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como membro de comissão responsável por processo seletivo, vestibular, concurso ou exames públicos</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Responsabilidade direta em processos seletivos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="50" data-for="comissao_responsavel">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 11 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="tempo_efetivo_exercicio">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Tempo de efetivo exercício na carreira</strong>
+                                    <span class="pontos">1.00 pts/ano</span>
+                                    <p>Tempo de serviço efetivo na carreira</p>
+                                    <input type="number" class="quantidade-input" placeholder="Anos" min="0" max="50" data-for="tempo_efetivo_exercicio">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 12 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissao_organizadora_processo">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro de comissão organizadora de processo seletivo</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Participação na organização de processos seletivos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="50" data-for="membro_comissao_organizadora_processo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 13 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissao_responsavel_processo">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro de comissão responsável por processo seletivo</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Responsabilidade direta em processos seletivos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="50" data-for="membro_comissao_responsavel_processo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 14 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_grupos_politicas_inclusivas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro em grupos de políticas públicas inclusivas e afirmativas</strong>
+                                    <span class="pontos">1.00 pts/grupo</span>
+                                    <p>Participação em comissões de heteroidentificação, gênero, diversidade, etc.</p>
+                                    <input type="number" class="quantidade-input" placeholder="Grupos" min="0" max="20" data-for="membro_grupos_politicas_inclusivas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 15 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissoes_organizacoes_privadas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro em comissões de organizações privadas ou sociedade civil</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Participação em comissões externas à administração pública</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="20" data-for="membro_comissoes_organizacoes_privadas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 16 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="membro_titular_comissoes_administracao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro titular em comissões da administração pública</strong>
+                                    <span class="pontos">1.25 pts/comissão</span>
+                                    <p>Participação como titular em comissões públicas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="30" data-for="membro_titular_comissoes_administracao">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 17 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="membro_suplente_comissoes_administracao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro suplente em comissões da administração pública</strong>
+                                    <span class="pontos">0.50 pts/comissão</span>
+                                    <p>Participação como suplente em comissões públicas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="30" data-for="membro_suplente_comissoes_administracao">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 18 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_conselho_profissional">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro em conselho profissional</strong>
+                                    <span class="pontos">1.00 pts/conselho</span>
+                                    <p>Participação em conselhos profissionais</p>
+                                    <input type="number" class="quantidade-input" placeholder="Conselhos" min="0" max="10" data-for="membro_conselho_profissional">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 19 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissao_interna_supervisao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro da Comissão Interna de Supervisão (CIS)</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Participação na Comissão Interna de Supervisão</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="10" data-for="membro_comissao_interna_supervisao">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 20 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="organizacao_eventos_educacionais">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Organização de eventos educacionais, científicos, culturais</strong>
+                                    <span class="pontos">1.25 pts/evento</span>
+                                    <p>Organização de eventos institucionais</p>
+                                    <input type="number" class="quantidade-input" placeholder="Eventos" min="0" max="50" data-for="organizacao_eventos_educacionais">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 21 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="representacao_institucional_conselhos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Representação institucional em conselhos externos</strong>
+                                    <span class="pontos">1.00 pts/conselho</span>
+                                    <p>Representação da instituição em conselhos externos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Conselhos" min="0" max="20" data-for="representacao_institucional_conselhos">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 22 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="coordenacao_presidencia_comissoes">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Coordenação/presidência de comissões na administração pública</strong>
+                                    <span class="pontos">1.25 pts/comissão</span>
+                                    <p>Coordenação ou presidência de comissões públicas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="30" data-for="coordenacao_presidencia_comissoes">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 23 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="atuacao_titular_cargo_direcao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação como titular/substituto de Cargo de Direção (CD)</strong>
+                                    <span class="pontos">2.50 pts/cargo</span>
+                                    <p>Exercício de cargo de direção</p>
+                                    <input type="number" class="quantidade-input" placeholder="Cargos" min="0" max="10" data-for="atuacao_titular_cargo_direcao">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 24 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="atuacao_titular_funcao_gratificada">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação como titular/substituto de Função Gratificada (FG)</strong>
+                                    <span class="pontos">1.25 pts/função</span>
+                                    <p>Exercício de função gratificada</p>
+                                    <input type="number" class="quantidade-input" placeholder="Funções" min="0" max="20" data-for="atuacao_titular_funcao_gratificada">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 25 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="responsavel_setor_unidade_equipe">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Responsável por setor, unidade ou equipe</strong>
+                                    <span class="pontos">1.00 pts/responsabilidade</span>
+                                    <p>Responsabilidade por setor, unidade ou equipe</p>
+                                    <input type="number" class="quantidade-input" placeholder="Responsabilidades" min="0" max="20" data-for="responsavel_setor_unidade_equipe">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 26 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="proficiencia_libras_lingua_estrangeira">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Proficiência ou curso em LIBRAS e/ou língua estrangeira</strong>
+                                    <span class="pontos">1.25 pts/proficiência</span>
+                                    <p>Certificação em LIBRAS ou línguas estrangeiras</p>
+                                    <input type="number" class="quantidade-input" placeholder="Proficiências" min="0" max="10" data-for="proficiencia_libras_lingua_estrangeira">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 27 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="certificacao_profissional_area_atuacao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Certificação Profissional na área de atuação</strong>
+                                    <span class="pontos">2.50 pts/certificação</span>
+                                    <p>Certificações profissionais específicas da área</p>
+                                    <input type="number" class="quantidade-input" placeholder="Certificações" min="0" max="10" data-for="certificacao_profissional_area_atuacao">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 28 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="participacao_instrutor_conteudista">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como instrutor ou conteudista em capacitações</strong>
+                                    <span class="pontos">1.00 pts/participação</span>
+                                    <p>Atuação como instrutor ou conteudista</p>
+                                    <input type="number" class="quantidade-input" placeholder="Participações" min="0" max="50" data-for="participacao_instrutor_conteudista">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 29 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="participacao_tutor_monitor_orientador">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como tutor, monitor ou orientador mentor</strong>
+                                    <span class="pontos">0.50 pts/participação</span>
+                                    <p>Atuação como tutor, monitor ou orientador</p>
+                                    <input type="number" class="quantidade-input" placeholder="Participações" min="0" max="100" data-for="participacao_tutor_monitor_orientador">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 30 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.125" data-categoria="administrativa" id="participacao_capacitacoes_alinhadas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em capacitações alinhadas aos objetivos institucionais</strong>
+                                    <span class="pontos">0.125 pts/capacitação</span>
+                                    <p>Participação em cursos e capacitações institucionais</p>
+                                    <input type="number" class="quantidade-input" placeholder="Capacitações" min="0" max="200" data-for="participacao_capacitacoes_alinhadas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 31 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="participacao_processos_eleitorais">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em processos eleitorais institucionais</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Participação em processos eleitorais institucionais</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 32 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="conselho_profissional">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro em conselho profissional</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Participação em conselhos de classe</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 33 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="cis_comissoes">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro da Comissão Interna de Supervisão (CIS)</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Participação na CIS ou comissões correlatas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 34 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="organizacao_eventos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Organização de eventos educacionais, científicos, culturais</strong>
+                                    <span class="pontos">1.00 pts/evento</span>
+                                    <p>Organização de eventos institucionais</p>
+                                    <input type="number" class="quantidade-input" placeholder="Eventos" min="0" max="50" data-for="organizacao_eventos">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 35 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="representacao_institucional">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Representação institucional em conselhos externos</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Representação em órgãos municipais, estaduais, federais</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 36 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="coordenacao_presidencia">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Coordenação/presidência de comissões na administração pública</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Liderança de comissões, comitês ou grupos de trabalho</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 37 - Cargos e Funções -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.25" data-categoria="administrativa" id="cargo_direcao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação como titular/substituto de Cargo de Direção (CD)</strong>
+                                    <span class="pontos">0.25 pts/mês</span>
+                                    <p>Exercício de cargo de direção ou equivalente</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="cargo_direcao">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 38 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.125" data-categoria="administrativa" id="funcao_gratificada">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação como titular/substituto de Função Gratificada (FG)</strong>
+                                    <span class="pontos">0.125 pts/mês</span>
+                                    <p>Exercício de função gratificada ou equivalente</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="funcao_gratificada">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 39 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.125" data-categoria="administrativa" id="responsavel_setor">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Responsável por setor, unidade ou equipe</strong>
+                                    <span class="pontos">0.125 pts/mês</span>
+                                    <p>Responsabilidade por coordenação de setor</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="responsavel_setor">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 40 - Qualificações Especiais -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="5.00" data-categoria="administrativa" id="proficiencia_libras">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Proficiência ou curso em LIBRAS e/ou língua estrangeira</strong>
+                                    <span class="pontos">5.00 pts</span>
+                                    <p>Certificação em LIBRAS ou idiomas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 41 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="certificacao_profissional">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Certificação Profissional na área de atuação</strong>
+                                    <span class="pontos">1.25 pts/certificação</span>
+                                    <p>Certificações técnicas ou profissionais</p>
+                                    <input type="number" class="quantidade-input" placeholder="Certificações" min="0" max="20" data-for="certificacao_profissional">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 42 - Capacitação e Ensino -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="instrutor_conteudista">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como instrutor ou conteudista em capacitações</strong>
+                                    <span class="pontos">1.00 pts/curso</span>
+                                    <p>Atuação como instrutor em cursos de formação</p>
+                                    <input type="number" class="quantidade-input" placeholder="Cursos" min="0" max="50" data-for="instrutor_conteudista">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 43 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="tutor_monitor">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como tutor, monitor ou orientador mentor</strong>
+                                    <span class="pontos">0.50 pts/atividade</span>
+                                    <p>Tutoria em cursos ou estágio probatório</p>
+                                    <input type="number" class="quantidade-input" placeholder="Atividades" min="0" max="50" data-for="tutor_monitor">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 44 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.25" data-categoria="administrativa" id="capacitacoes_alinhadas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em capacitações alinhadas aos objetivos institucionais</strong>
+                                    <span class="pontos">0.25 pts/curso</span>
+                                    <p>Cursos de formação continuada na área</p>
+                                    <input type="number" class="quantidade-input" placeholder="Cursos" min="0" max="100" data-for="capacitacoes_alinhadas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 45 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissao_cis">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro da Comissão Interna de Supervisão (CIS)</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Participação na CIS ou comissões correlatas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 46 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="tempo_servico_outras_instituicoes">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Tempo de serviço em outras instituições públicas/privadas</strong>
+                                    <span class="pontos">1.00 pts/ano</span>
+                                    <p>Experiência profissional em outras organizações</p>
+                                    <input type="number" class="quantidade-input" placeholder="Anos" min="0" max="40" data-for="tempo_servico_outras_instituicoes">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 47 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="trabalho_orgaos_estatais">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Trabalho em órgãos estatais, escolas de governo, agências reguladoras</strong>
+                                    <span class="pontos">1.00 pts/ano</span>
+                                    <p>Experiência em órgãos públicos especializados</p>
+                                    <input type="number" class="quantidade-input" placeholder="Anos" min="0" max="40" data-for="trabalho_orgaos_estatais">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 48 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="trabalho_mec_entidades">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Trabalho no MEC e entidades vinculadas</strong>
+                                    <span class="pontos">1.00 pts/ano</span>
+                                    <p>Experiência no Ministério da Educação e órgãos vinculados</p>
+                                    <input type="number" class="quantidade-input" placeholder="Anos" min="0" max="40" data-for="trabalho_mec_entidades">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 49 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_gestao_sindical">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro da gestão sindical ou conselho fiscal</strong>
+                                    <span class="pontos">1.00 pts/mandato</span>
+                                    <p>Participação em diretorias sindicais ou conselhos fiscais</p>
+                                    <input type="number" class="quantidade-input" placeholder="Mandatos" min="0" max="10" data-for="membro_gestao_sindical">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 50 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissoes_permanentes">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro em comissões permanentes instituídas por lei</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Participação em comissões legalmente constituídas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="20" data-for="membro_comissoes_permanentes">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 51 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissao_consulta_eleitoral">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro de comissão de consulta/eleitoral</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Participação em comissões eleitorais ou de consulta</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="10" data-for="membro_comissao_consulta_eleitoral">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 52 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_comissoes_organizacoes_privadas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro em comissões de organizações privadas ou sociedade civil</strong>
+                                    <span class="pontos">1.00 pts/comissão</span>
+                                    <p>Participação em comissões de entidades privadas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Comissões" min="0" max="20" data-for="membro_comissoes_organizacoes_privadas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 53 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_grupos_politicas_inclusivas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Membro em grupos de políticas públicas inclusivas e afirmativas</strong>
+                                    <span class="pontos">1.00 pts/grupo</span>
+                                    <p>Participação em grupos de políticas de inclusão e ações afirmativas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Grupos" min="0" max="10" data-for="membro_grupos_politicas_inclusivas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 54 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.10" data-categoria="administrativa" id="edicao_midias_tecnicas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Edição de mídias técnicas veiculadas em jornais, revistas e sites</strong>
+                                    <span class="pontos">0.10 pts</span>
+                                    <p>Edição de conteúdo técnico para mídia impressa e digital</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 55 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.10" data-categoria="administrativa" id="edicao_roteiros_programas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Edição de roteiros para programas de rádio, TV e mídias; eventos institucionais</strong>
+                                    <span class="pontos">0.10 pts</span>
+                                    <p>Edição de roteiros para programas e eventos artísticos, culturais e esportivos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 56 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="edicao_publicacoes_institucionais">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Edição, organização, revisão, tradução e avaliação/parecer em publicações institucionais</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Avaliação do projeto em si (critérios de relevância, execução, aspectos formais, metodológicos e teóricos)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 57 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="lideranca_grupo_pesquisa">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Liderança ou vice-liderança de grupo de pesquisa registrado</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Liderança em grupos de pesquisa oficialmente registrados</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 58 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="avaliador_eventos_academicos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação de servidor como avaliador em eventos acadêmicos, científicos, culturais, esportivos e técnicos</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Análise crítica, avaliação e emissão de pareceres sobre trabalhos, projetos ou apresentações</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 59 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="avaliacao_projetos_ensino_pesquisa">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atividade de avaliação do projeto de ensino e/ou pesquisa e/ou extensão e/ou inovação</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Verificação se o projeto foi submetido adequadamente e de acordo com as normas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 60 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="coordenador_implantacao_unidades">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como coordenador de implantação de unidades de ensino</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Coordenação de implantação de novas unidades educacionais</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 61 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="coordenador_projetos_desenvolvimento">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como coordenador em projetos de desenvolvimento institucional</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Coordenação de projetos de ensino, pesquisa, extensão, inovação e/ou assistência</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 62 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="mediador_palestrante_eventos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como mediador, palestrante, apresentador ou artista em eventos</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Congressos, simpósios, conferências, workshops, eventos científicos, técnicos, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 63 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="membro_equipe_implantacao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como membro de equipe de implantação de unidades de ensino</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Participação em equipes de implantação de novas unidades educacionais</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 64 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.125" data-categoria="administrativa" id="participacao_ouvinte_eventos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como ouvinte ou assistente em eventos</strong>
+                                    <span class="pontos">0.125 pts</span>
+                                    <p>Congressos, simpósios, fóruns, conferências, workshops, seminários, eventos científicos, técnicos, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 65 -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="participacao_comissao_ppc">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em comissão de elaboração/reformulação de projetos pedagógicos</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Cursos técnicos integrados ao ensino médio, técnicos concomitantes ou subsequentes, graduação, pós-graduação ou cursos FIC</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 66 - Participação em conselhos editoriais -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="participacao_conselhos_editoriais">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em conselhos editoriais</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Participação em conselhos editoriais de publicações</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 67 - Coordenação de elaboração/reformulação de projetos pedagógicos de cursos -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="coordenacao_elaboracao_ppc">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Coordenação de elaboração/reformulação de projetos pedagógicos de cursos</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Cursos técnicos integrados ao ensino médio, técnicos concomitantes ou subsequentes, graduação ou pós-graduação</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 68 - Participação em grupo de pesquisa registrado -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="participacao_grupo_pesquisa">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em grupo de pesquisa registrado</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Participação em grupos de pesquisa oficialmente registrados</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 69 - Participação em projeto de implantação/implementação de ambientes de ensino/aprendizagem -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="participacao_implantacao_ambientes">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em projeto de implantação/implementação de ambientes de ensino/aprendizagem</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Laboratórios, oficinas, estúdios, alas ou áreas para práticas esportivas, sociais, artísticos e culturais</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 70 - Participação em projetos de desenvolvimento institucional -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="participacao_projetos_desenvolvimento">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em projetos de desenvolvimento institucional</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Projetos de ensino, pesquisa, extensão, inovação e/ou assistência, na própria instituição ou em parceria</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 71 - Participação na organização de eventos -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="participacao_organizacao_eventos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação na organização de eventos</strong>
+                                    <span class="pontos">1.25 pts</span>
+                                    <p>Congressos, simpósios, conferências, workshops, seminários, eventos científicos, técnicos, esportivos, sociais, artísticos, culturais, sindicais e filantrópicos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 72 - Participação no desenvolvimento de protótipos, depósitos e/ou registros de propriedade intelectual -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="participacao_prototipos_propriedade">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação no desenvolvimento de protótipos, depósitos e/ou registros de propriedade intelectual</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Desenvolvimento de protótipos e registros de propriedade intelectual</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 73 - Prêmio de mérito profissional ou acadêmico, comendas, homenagens e menções honrosas -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="3.125" data-categoria="administrativa" id="premio_merito_profissional">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Prêmio de mérito profissional ou acadêmico, comendas, homenagens e menções honrosas</strong>
+                                    <span class="pontos">3.125 pts</span>
+                                    <p>Reconhecimentos e premiações profissionais ou acadêmicas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 74 - Produção de material audiovisual -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="producao_material_audiovisual">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Produção de material audiovisual</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Criação de conteúdo audiovisual institucional</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 75 - Publicação de artigos, trabalho completo e capítulo de livro -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.50" data-categoria="administrativa" id="publicacao_artigos_trabalhos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Publicação de artigos, trabalho completo e capítulo de livro</strong>
+                                    <span class="pontos">1.50 pts</span>
+                                    <p>Publicações com ISBN e Conselho Editorial</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 76 - Publicação de livro -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="publicacao_livro">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Publicação de livro</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Livros com ISBN e Conselho Editorial</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 77 - Avaliador de curso pelo INEP ou pelo MEC -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="avaliador_curso_inep_mec">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Avaliador de curso pelo INEP ou pelo MEC</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Atuação como avaliador institucional</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 78 - Elaboração, revisão e/ou correção de provas de exame de seleção, vestibular ou concursos -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="elaboracao_revisao_provas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Elaboração, revisão e/ou correção de provas de exame de seleção, vestibular ou concursos</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Participação em processos seletivos e concursos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 79 - Participação como jurado na área de atuação -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="participacao_jurado">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como jurado na área de atuação</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Atuação como jurado em processos avaliativos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 80 - Participação como orientador das monitorias de disciplinas e nas unidades de produção e laboratórios -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="orientador_monitorias">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como orientador das monitorias de disciplinas e nas unidades de produção e laboratórios</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Orientação de atividades de monitoria</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 81 - Participação como orientador de bolsistas de apoio técnico -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="orientador_bolsistas_apoio">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como orientador de bolsistas de apoio técnico</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Orientação de bolsistas em atividades técnicas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 82 - Participação como orientador/supervisor de estágios supervisionados -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="orientador_supervisor_estagios">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como orientador/supervisor de estágios supervisionados</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Supervisão de atividades de estágio</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 83 - Participação como preceptor em residências acadêmicas -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="preceptor_residencias">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como preceptor em residências acadêmicas</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Preceptoria em programas de residência</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 84 - Participação no apoio a atividades de preceptoria em residências médica e multiprofissional -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.10" data-categoria="administrativa" id="apoio_preceptoria_residencias">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação no apoio a atividades de preceptoria em residências médica e multiprofissional</strong>
+                                    <span class="pontos">0.10 pts</span>
+                                    <p>Apoio em atividades de preceptoria</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 85 - Participação em situações de surtos, epidemias e pandemias -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="participacao_surtos_epidemias">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em situações de surtos, epidemias e pandemias</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Atuação em situações de emergência sanitária</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.50" data-categoria="administrativa" id="participacao_politicas_promocao_saude">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em políticas, programas e ações de promoção da saúde</strong>
+                                    <span class="pontos">1.50 pts</span>
+                                    <p>Envolvimento em ações de promoção da saúde</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.05" data-categoria="administrativa" id="acolhimento_saude_mental">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Acolhimento em Saúde Mental, Atendimento em necessidades específicas e Humanização do Atendimento</strong>
+                                    <span class="pontos">0.05 pts</span>
+                                    <p>Atividades de acolhimento e humanização</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.05" data-categoria="administrativa" id="atuacao_areas_hospitalares">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação em áreas hospitalares críticas e semicríticas</strong>
+                                    <span class="pontos">0.05 pts</span>
+                                    <p>Trabalho em setores hospitalares de alta complexidade</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="coordenacao_ppc_reforma">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Coordenação de elaboração/reformulação de projetos pedagógicos de cursos</strong>
+                                    <span class="pontos">1.00 pts/coordenação</span>
+                                    <p>Cursos técnicos, graduação ou pós-graduação</p>
+                                    <input type="number" class="quantidade-input" placeholder="Coordenações" min="0" max="10" data-for="coordenacao_ppc_reforma">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Eventos e Participações -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="mediador_palestrante">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como mediador, palestrante, apresentador ou artista em eventos</strong>
+                                    <span class="pontos">1.00 pts/evento</span>
+                                    <p>Congressos, simpósios, conferências, workshops, seminários, debates, oficinas, mostras, feiras</p>
+                                    <input type="number" class="quantidade-input" placeholder="Eventos" min="0" max="100" data-for="mediador_palestrante">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.125" data-categoria="administrativa" id="ouvinte_eventos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como ouvinte ou assistente em eventos</strong>
+                                    <span class="pontos">0.125 pts/evento</span>
+                                    <p>Congressos, simpósios, fóruns, conferências, workshops, seminários, mostras, feiras</p>
+                                    <input type="number" class="quantidade-input" placeholder="Eventos" min="0" max="200" data-for="ouvinte_eventos">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.25" data-categoria="administrativa" id="organizacao_eventos_detalhado">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação na organização de eventos científicos, técnicos, esportivos, sociais, artísticos, culturais</strong>
+                                    <span class="pontos">1.25 pts/evento</span>
+                                    <p>Congressos, simpósios, conferências, workshops, seminários, mostras, feiras</p>
+                                    <input type="number" class="quantidade-input" placeholder="Eventos" min="0" max="50" data-for="organizacao_eventos_detalhado">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Publicações e Reconhecimentos -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="conselho_editorial">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em conselhos editoriais</strong>
+                                    <span class="pontos">2.50 pts</span>
+                                    <p>Participação em conselhos editoriais de publicações</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.50" data-categoria="administrativa" id="publicacao_artigos">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Publicação de artigos, trabalho completo e capítulo de livro</strong>
+                                    <span class="pontos">1.50 pts/publicação</span>
+                                    <p>Publicações com ISBN e Conselho Editorial</p>
+                                    <input type="number" class="quantidade-input" placeholder="Publicações" min="0" max="50" data-for="publicacao_artigos">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.50" data-categoria="administrativa" id="publicacao_livro">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Publicação de livro</strong>
+                                    <span class="pontos">2.50 pts/livro</span>
+                                    <p>Livros com ISBN e Conselho Editorial</p>
+                                    <input type="number" class="quantidade-input" placeholder="Livros" min="0" max="20" data-for="publicacao_livro">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="3.125" data-categoria="administrativa" id="premios_merito">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Prêmio de mérito profissional ou acadêmico, comendas, homenagens e menções honrosas</strong>
+                                    <span class="pontos">3.125 pts/prêmio</span>
+                                    <p>Reconhecimentos formais por mérito profissional ou acadêmico</p>
+                                    <input type="number" class="quantidade-input" placeholder="Prêmios" min="0" max="20" data-for="premios_merito">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Processos Seletivos e Provas -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="elaboracao_provas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Elaboração, revisão e/ou correção de provas de exame de seleção, vestibular ou concursos</strong>
+                                    <span class="pontos">1.00 pts/prova</span>
+                                    <p>Desenvolvimento de instrumentos avaliativos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Provas" min="0" max="50" data-for="elaboracao_provas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Orientação e Supervisão -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="orientador_monitoria">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como orientador das monitorias de disciplinas e nas unidades de produção e laboratórios</strong>
+                                    <span class="pontos">0.50 pts/orientação</span>
+                                    <p>Orientação de atividades de monitoria</p>
+                                    <input type="number" class="quantidade-input" placeholder="Orientações" min="0" max="50" data-for="orientador_monitoria">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="orientador_bolsistas">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como orientador de bolsistas de apoio técnico</strong>
+                                    <span class="pontos">0.50 pts/orientação</span>
+                                    <p>Orientação de bolsistas em atividades técnicas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Orientações" min="0" max="50" data-for="orientador_bolsistas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="supervisor_estagios">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como orientador/supervisor de estágios supervisionados</strong>
+                                    <span class="pontos">0.50 pts/estágio</span>
+                                    <p>Supervisão de estágios curriculares</p>
+                                    <input type="number" class="quantidade-input" placeholder="Estágios" min="0" max="100" data-for="supervisor_estagios">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.00" data-categoria="administrativa" id="preceptor_residencias">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação como preceptor em residências acadêmicas</strong>
+                                    <span class="pontos">1.00 pts</span>
+                                    <p>Preceptoria em programas de residência</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.10" data-categoria="administrativa" id="apoio_preceptoria">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação no apoio a atividades de preceptoria em residências médica e multiprofissional</strong>
+                                    <span class="pontos">0.10 pts/mês</span>
+                                    <p>Apoio em atividades de preceptoria</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="apoio_preceptoria">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saúde e Atendimento Especializado -->
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.50" data-categoria="administrativa" id="surtos_epidemias">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em situações de surtos, epidemias e pandemias</strong>
+                                    <span class="pontos">0.50 pts</span>
+                                    <p>Atuação em situações de emergência sanitária</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.50" data-categoria="administrativa" id="promocao_saude">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em políticas, programas e ações de promoção da saúde</strong>
+                                    <span class="pontos">1.50 pts</span>
+                                    <p>Atuação em programas de promoção da saúde</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.05" data-categoria="administrativa" id="acolhimento_saude_mental">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Acolhimento em Saúde Mental, Atendimento em necessidades específicas e Humanização do Atendimento</strong>
+                                    <span class="pontos">0.05 pts/mês</span>
+                                    <p>Atividades de acolhimento e humanização</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="acolhimento_saude_mental">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.05" data-categoria="administrativa" id="areas_hospitalares">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação em áreas hospitalares críticas e semicríticas</strong>
+                                    <span class="pontos">0.05 pts/mês</span>
+                                    <p>Trabalho em unidades de alta complexidade hospitalar</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="areas_hospitalares">
                                 </div>
                             </div>
                         </div>
