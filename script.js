@@ -550,11 +550,7 @@ function limparTudo() {
                     countElement.textContent = '0';
                 }
                 
-                // Limpar progresso dos níveis
-                const progressoContainer = document.getElementById('progresso-niveis');
-                if (progressoContainer) {
-                    progressoContainer.innerHTML = '';
-                }
+                // Não limpar progresso dos níveis - manter os blocos visuais
                 
                 // Mostrar todas as competências
                 const competenciaItems = document.querySelectorAll('.competencia-item');

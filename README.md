@@ -1,6 +1,7 @@
 # 📊 Calculadora RSC - Reconhecimento de Saberes e Competências
 
-**Versão:** 1.0.0  
+**Versão:** 1.2.0  
+**Desenvolvido por:** [Erik Barbosa](https://github.com/atsireopac/)  
 **Desenvolvido para:** Técnicos Administrativos em Educação (TAE)  
 **Licença:** MIT
 
@@ -20,8 +21,15 @@ A Calculadora RSC é uma aplicação web desenvolvida para auxiliar Técnicos Ad
 - Painel de resultados em tempo real
 - Barra de progresso visual para cada nível RSC
 - Lista de competências selecionadas
-- Busca por competências específicas
+- **Sistema de busca avançado por palavras-chave**
+  - Busca ativada ao pressionar Enter
+  - Busca por múltiplas palavras simultaneamente
+  - Scroll automático para o primeiro resultado
+  - Destaque visual dos itens encontrados
+  - Contador de resultados encontrados
+  - Limpeza automática ao apagar o texto
 - Animações visuais de feedback
+- **Botão "Limpar Tudo" otimizado** que preserva os blocos de progresso visual
 
 ### 📄 Relatórios
 - Exportação de relatório detalhado em formato de texto
@@ -136,11 +144,32 @@ A Calculadora RSC é uma aplicação web desenvolvida para auxiliar Técnicos Ad
 4. **Acompanhe em tempo real** sua pontuação no painel lateral
 5. **Exporte o relatório** quando finalizar a seleção
 
+### 🔍 Sistema de Busca Avançado
+
+O sistema de busca foi aprimorado para oferecer uma experiência mais eficiente:
+
+**Como usar:**
+1. Digite as palavras-chave no campo de busca
+2. Pressione **Enter** para executar a busca
+3. O sistema buscará por **todas as palavras** digitadas no título e descrição das competências
+4. Os resultados serão destacados visualmente
+5. A página fará scroll automático para o primeiro resultado
+6. Um contador mostrará quantos itens foram encontrados
+
+**Funcionalidades:**
+- ✅ Busca por múltiplas palavras simultaneamente
+- ✅ Busca tanto no título quanto na descrição
+- ✅ Destaque visual dos resultados encontrados
+- ✅ Scroll automático para o primeiro resultado
+- ✅ Contador de resultados em tempo real
+- ✅ Limpeza automática ao apagar o texto
+- ✅ Integração com o botão "Limpar Tudo"
+
 ### Dicas de Uso
-- Use a **busca** para encontrar competências específicas rapidamente
+- Use a **busca por palavras-chave** para encontrar competências específicas rapidamente
 - O **painel de resultados** mostra seu progresso em tempo real
 - A **animação de confete** indica quando você atinge os requisitos para um nível
-- O botão **"Limpar Tudo"** reseta todas as seleções
+- O botão **"Limpar Tudo"** reseta todas as seleções mas preserva os blocos de progresso visual
 
 ## 📁 Estrutura do Projeto
 
@@ -215,6 +244,22 @@ Contribuições são bem-vindas! Para contribuir:
 
 ## 📝 Changelog
 
+### Versão 1.2.0 (2025)
+- ✅ **Sistema de busca avançado por palavras-chave**
+  - Busca ativada apenas ao pressionar Enter
+  - Suporte a múltiplas palavras simultaneamente
+  - Scroll automático para o primeiro resultado
+  - Destaque visual dos itens encontrados
+  - Contador de resultados em tempo real
+- ✅ **Correção do botão "Limpar Tudo"**
+  - Preserva os blocos visuais de progresso no painel direito
+  - Mantém a funcionalidade de limpeza das seleções
+- ✅ **Rodapé aprimorado**
+  - Design moderno com fundo escuro
+  - Link para o GitHub do desenvolvedor
+  - Posicionamento fixo ao final da página
+  - Informações legais atualizadas
+
 ### Versão 1.0.0 (2024)
 - ✅ Implementação inicial da calculadora RSC
 - ✅ Interface responsiva e moderna
@@ -222,7 +267,7 @@ Contribuições são bem-vindas! Para contribuir:
 - ✅ Sistema de validação de pré-requisitos
 - ✅ Exportação de relatórios
 - ✅ Animações e feedback visual
-- ✅ Busca por competências
+- ✅ Busca básica por competências
 - ✅ Painel de resultados em tempo real
 
 ## 📄 Licença
@@ -231,7 +276,16 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 👨‍💻 Autor
 
+**Erik Barbosa** - [GitHub](https://github.com/atsireopac/)
+
 Desenvolvido com ❤️ para auxiliar os Técnicos Administrativos em Educação no processo de Reconhecimento de Saberes e Competências.
+
+### Sobre o Desenvolvedor
+- 1 ano de experiência em arquitetura e sustentação de software na Fundação Universidade de Brasília
+- 1 ano de experiência em monitoração de redes de computadores na Caixa Econômica Federal
+- Especialização em Engenharia de Software
+- MBA em Gestão de Negócios de Tecnologia da Informação
+- Bacharelado em Engenharia de Software
 
 ---
 
