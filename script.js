@@ -102,6 +102,18 @@ function inicializarEventListeners() {
         escolaridadeSelect.addEventListener('change', handleEscolaridadeChange);
     }
     
+    // Campo de busca
+    const buscaInput = document.getElementById('busca-competencia');
+    if (buscaInput) {
+        buscaInput.addEventListener('input', handleBuscaChange);
+        buscaInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                realizarBusca(buscaInput.value.trim());
+            }
+        });
+    }
+    
     // Botões de ação
     const btnLimpar = document.getElementById('btn-limpar');
     const btnExportar = document.getElementById('btn-exportar');
@@ -116,9 +128,87 @@ function inicializarEventListeners() {
     }
 }
 
-// Manipular mudança de checkbox
-function handleCheckboxChange(event) {
-    const checkbox = event.target;
+function handleBuscaChange(event) {
+    const termoBusca = event.target.value.trim();
+    
+    if (termoBusca.length === 0) {
+        // Se não há termo de busca, mostrar todas as competências
+        mostrarTodasCompetencias();
+        return;
+    }
+    
+    // Não fazer busca em tempo real, apenas quando pressionar Enter
+}
+
+function realizarBusca(termoBusca) {
+    if (!termoBusca || termoBusca.trim().length === 0) {
+        mostrarTodasCompetencias();
+        return;
+    }
+    
+    // Dividir o termo de busca em palavras individuais
+    const palavrasChave = termoBusca.toLowerCase().trim().split(/\s+/).filter(palavra => palavra.length > 0);
+    
+    if (palavrasChave.length === 0) {
+        mostrarTodasCompetencias();
+        return;
+    }
+    
+    const competenciaItems = document.querySelectorAll('.competencia-item');
+    let primeiroEncontrado = null;
+    let totalEncontrados = 0;
+    
+    competenciaItems.forEach(item => {
+        const competenciaInfo = item.querySelector('.competencia-info');
+        const titulo = competenciaInfo.querySelector('strong').textContent.toLowerCase();
+        const descricao = competenciaInfo.querySelector('p').textContent.toLowerCase();
+        const textoCompleto = titulo + ' ' + descricao;
+        
+        // Verificar se todas as palavras-chave estão presentes no texto
+        const encontrouTodasPalavras = palavrasChave.every(palavra => 
+            textoCompleto.includes(palavra)
+        );
+        
+        if (encontrouTodasPalavras) {
+            item.style.display = 'block';
+            item.style.backgroundColor = '#fff3cd'; // Destacar resultado
+            item.style.border = '2px solid #ffc107';
+            totalEncontrados++;
+            
+            if (!primeiroEncontrado) {
+                primeiroEncontrado = item;
+            }
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    // Scroll até o primeiro resultado encontrado
+    if (primeiroEncontrado) {
+        setTimeout(() => {
+            primeiroEncontrado.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 100);
+        
+        mostrarNotificacao(`${totalEncontrados} competência(s) encontrada(s) para: "${termoBusca}"`, 'success');
+    } else {
+        mostrarNotificacao(`Nenhuma competência encontrada para: "${termoBusca}"`, 'warning');
+    }
+}
+
+function mostrarTodasCompetencias() {
+    const competenciaItems = document.querySelectorAll('.competencia-item');
+    
+    competenciaItems.forEach(item => {
+        item.style.display = 'block';
+        item.style.backgroundColor = '';
+        item.style.border = '';
+    });
+}
+
+function handleCheckboxChange(event) {    const checkbox = event.target;
     const competenciaId = checkbox.id;
     const pontosPorUnidade = parseFloat(checkbox.dataset.pontos) || 0;
     const categoria = checkbox.dataset.categoria || 'geral';
@@ -426,11 +516,12 @@ function limparTudo() {
                 escolaridadeSelect.dispatchEvent(new Event('change', { bubbles: true }));
             }
             
-            // Limpar campo de busca
+            // Limpar campo de busca e remover destaques
             const buscaInput = document.getElementById('busca-competencia');
             if (buscaInput) {
                 buscaInput.value = '';
             }
+            mostrarTodasCompetencias(); // Remover destaques da busca
             
             // Forçar atualização completa da interface
             setTimeout(() => {
