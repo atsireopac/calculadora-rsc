@@ -143,7 +143,8 @@ function handleCheckboxChange(event) {
         
         // Adicionar competência selecionada
         const quantidade = quantidadeInput ? parseInt(quantidadeInput.value) || 1 : 1;
-        const pontosTotal = pontosPorUnidade * quantidade;
+        // Truncar para 3 casas decimais sem arredondamento
+        const pontosTotal = Math.floor((pontosPorUnidade * quantidade) * 1000) / 1000;
         
         competenciasSelecionadas.set(competenciaId, {
             nome: getCompetenciaNome(competenciaId),
@@ -175,7 +176,8 @@ function handleQuantidadeChange(event) {
     if (competenciasSelecionadas.has(competenciaId)) {
         const competencia = competenciasSelecionadas.get(competenciaId);
         competencia.quantidade = quantidade;
-        competencia.pontosTotal = competencia.pontosPorUnidade * quantidade;
+        // Truncar para 3 casas decimais sem arredondamento
+        competencia.pontosTotal = Math.floor((competencia.pontosPorUnidade * quantidade) * 1000) / 1000;
         
         competenciasSelecionadas.set(competenciaId, competencia);
         atualizarResultados();
@@ -256,7 +258,9 @@ function calcularTotalPontos() {
     
     const totalElement = document.getElementById('total-pontos');
     if (totalElement) {
-        totalElement.textContent = totalPontos.toFixed(1);
+        // Truncar para 3 casas decimais sem arredondamento
+        const totalTruncado = Math.floor(totalPontos * 1000) / 1000;
+        totalElement.textContent = totalTruncado.toFixed(3);
     }
 }
 
@@ -324,7 +328,7 @@ function atualizarListaSelecionadas() {
                 <span class="competencia-nome">${comp.nome}</span>
                 <span class="competencia-detalhes">
                     ${comp.quantidade > 1 ? `${comp.quantidade}x ` : ''}
-                    <span class="competencia-pontos">${comp.pontosTotal.toFixed(1)} pts</span>
+                    <span class="competencia-pontos">${comp.pontosTotal.toFixed(3)} pts</span>
                 </span>
             </div>
         `)
@@ -361,7 +365,7 @@ function atualizarProgressoNiveis() {
                         <span class="nivel-requisito">${config.preRequisito}</span>
                     </div>
                     <div class="nivel-detalhes">
-                        <small>Pontos: ${totalPontos.toFixed(1)}/${config.minPontos} | Itens: ${totalItens}/${config.minItens}</small>
+                        <small>Pontos: ${totalPontos.toFixed(3)}/${config.minPontos} | Itens: ${totalItens}/${config.minItens}</small>
                     </div>
                     <div class="progresso-bar">
                         <div class="progresso-fill" style="width: ${Math.min(progressoPontos, progressoItens)}%"></div>
@@ -392,47 +396,91 @@ function getCategoriaDisplayName(categoria) {
 function limparTudo() {
     try {
         if (confirm('Tem certeza que deseja limpar todas as seleções?')) {
-            // Desmarcar todos os checkboxes
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    checkbox.checked = false;
-                    // Disparar evento de mudança para atualizar a interface
-                    checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-                }
-            });
-            
-            // Limpar e desabilitar inputs de quantidade
-            const quantidadeInputs = document.querySelectorAll('.quantidade-input');
-            quantidadeInputs.forEach(input => {
-                if (input.value !== '') {
-                    input.value = '';
-                    input.dispatchEvent(new Event('input', { bubbles: true }));
-                }
-                input.disabled = true;
-            });
-            
-            // Resetar escolaridade
-            const escolaridadeSelect = document.getElementById('nivel-escolaridade');
-            if (escolaridadeSelect && escolaridadeSelect.value !== '') {
-                escolaridadeSelect.value = '';
-                escolaridadeSelect.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-            
-            // Limpar estado
+            // Limpar estado global primeiro
             competenciasSelecionadas.clear();
             totalPontos = 0;
             nivelEscolaridade = '';
             
-            // Atualizar interface
-            atualizarResultados();
+            // Desmarcar todos os checkboxes e disparar eventos
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][data-pontos]');
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkbox.checked = false;
+                    // Disparar evento change para garantir que o estado seja atualizado
+                    checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            });
+            
+            // Limpar e desabilitar todos os inputs de quantidade
+            const quantidadeInputs = document.querySelectorAll('.quantidade-input');
+            quantidadeInputs.forEach(input => {
+                input.value = '';
+                input.disabled = true;
+            });
+            
+            // Resetar seletor de escolaridade
+            const escolaridadeSelect = document.getElementById('nivel-escolaridade');
+            if (escolaridadeSelect) {
+                escolaridadeSelect.selectedIndex = 0;
+                // Disparar evento change para resetar o nível
+                escolaridadeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            
+            // Limpar campo de busca
+            const buscaInput = document.getElementById('busca-competencia');
+            if (buscaInput) {
+                buscaInput.value = '';
+            }
+            
+            // Forçar atualização completa da interface
+            setTimeout(() => {
+                // Resetar total de pontos
+                const totalElement = document.getElementById('total-pontos');
+                if (totalElement) {
+                    totalElement.textContent = '0.000';
+                }
+                
+                // Resetar nível atual
+                const nivelElement = document.getElementById('nivel-atual');
+                if (nivelElement) {
+                    nivelElement.textContent = 'Selecione sua escolaridade';
+                    nivelElement.className = 'nivel-atual sem-nivel';
+                }
+                
+                // Limpar lista de selecionadas
+                const listaElement = document.getElementById('lista-selecionadas');
+                if (listaElement) {
+                    listaElement.innerHTML = '<p class="sem-selecao">Nenhuma competência selecionada</p>';
+                }
+                
+                // Resetar contador
+                const countElement = document.getElementById('count-selecionadas');
+                if (countElement) {
+                    countElement.textContent = '0';
+                }
+                
+                // Limpar progresso dos níveis
+                const progressoContainer = document.getElementById('progresso-niveis');
+                if (progressoContainer) {
+                    progressoContainer.innerHTML = '';
+                }
+                
+                // Mostrar todas as competências
+                const competenciaItems = document.querySelectorAll('.competencia-item');
+                competenciaItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                
+                // Forçar uma atualização final
+                atualizarResultados();
+            }, 100);
             
             // Mostrar notificação
-            mostrarNotificacao('Todas as seleções foram removidas!', 'info');
+            mostrarNotificacao('Todas as seleções foram removidas!', 'success');
         }
     } catch (error) {
         console.error('Erro na função limparTudo:', error);
-        alert('Erro ao limpar seleções: ' + error.message);
+        mostrarNotificacao('Erro ao limpar seleções: ' + error.message, 'error');
     }
 }
 
@@ -459,7 +507,7 @@ function gerarRelatorio() {
     relatorio += `=====================================\n\n`;
     
     relatorio += `RESUMO GERAL\n`;
-    relatorio += `Total de Pontos: ${totalPontos.toFixed(1)}\n`;
+    relatorio += `Total de Pontos: ${totalPontos.toFixed(3)}\n`;
     relatorio += `Total de Itens Selecionados: ${competenciasSelecionadas.size}\n`;
     
     // Determinar nível
@@ -501,15 +549,15 @@ function gerarRelatorio() {
             if (comp.quantidade > 1) {
                 relatorio += ` (${comp.quantidade} unidades)`;
             }
-            relatorio += ` - ${comp.pontosTotal.toFixed(1)} pontos\n`;
+            relatorio += ` - ${comp.pontosTotal.toFixed(3)} pontos\n`;
         });
         
         const totalCategoria = competencias.reduce((sum, comp) => sum + comp.pontosTotal, 0);
-        relatorio += `Subtotal: ${totalCategoria.toFixed(1)} pontos\n`;
+        relatorio += `Subtotal: ${totalCategoria.toFixed(3)} pontos\n`;
     });
     
     relatorio += `\n=====================================\n`;
-    relatorio += `TOTAL GERAL: ${totalPontos.toFixed(1)} PONTOS\n`;
+    relatorio += `TOTAL GERAL: ${totalPontos.toFixed(3)} PONTOS\n`;
     relatorio += `NÍVEL RSC: ${nivelAtual}\n`;
     
     return relatorio;
