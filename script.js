@@ -69,13 +69,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // Configurar event listeners
 function inicializarEventListeners() {
     // Event listeners para checkboxes
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][data-pontos]');
+    
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', handleCheckboxChange);
     });
 
     // Event listeners para inputs de quantidade
     const quantidadeInputs = document.querySelectorAll('.quantidade-input');
+    
     quantidadeInputs.forEach(input => {
         input.addEventListener('input', handleQuantidadeChange);
         input.addEventListener('blur', handleQuantidadeBlur);
@@ -105,17 +107,28 @@ function inicializarEventListeners() {
     const btnExportar = document.getElementById('btn-exportar');
     
 
-    if (btnLimpar) btnLimpar.addEventListener('click', limparTudo);
-    if (btnExportar) btnExportar.addEventListener('click', exportarRelatorio);
+    if (btnLimpar) {
+        btnLimpar.addEventListener('click', limparTudo);
+    }
+    
+    if (btnExportar) {
+        btnExportar.addEventListener('click', exportarRelatorio);
+    }
 }
 
 // Manipular mudança de checkbox
 function handleCheckboxChange(event) {
     const checkbox = event.target;
     const competenciaId = checkbox.id;
-    const pontosPorUnidade = parseFloat(checkbox.dataset.pontos);
-    const categoria = checkbox.dataset.categoria;
-    const quantidadeInput = document.querySelector(`input[data-for="${competenciaId}"]`);
+    const pontosPorUnidade = parseFloat(checkbox.dataset.pontos) || 0;
+    const categoria = checkbox.dataset.categoria || 'geral';
+    
+    // Procurar o input de quantidade usando data-for ou pela estrutura do DOM
+    let quantidadeInput = document.querySelector(`input[data-for="${competenciaId}"]`);
+    if (!quantidadeInput) {
+        // Fallback: procurar na estrutura do DOM
+        quantidadeInput = checkbox.closest('.competencia-item')?.querySelector('.quantidade-input');
+    }
     
     if (checkbox.checked) {
         // Habilitar input de quantidade se existir
@@ -214,7 +227,9 @@ function handleEscolaridadeChange(event) {
 
 // Obter nome da competência pelo ID
 function getCompetenciaNome(id) {
-    const elemento = document.querySelector(`#${id}`);
+    // Escapar IDs que começam com números para seletores CSS válidos
+    const seletor = /^\d/.test(id) ? `#\\3${id.charAt(0)} ${id.slice(1)}` : `#${id}`;
+    const elemento = document.querySelector(seletor);
     if (!elemento) return id;
     
     const container = elemento.closest('.competencia-item');
