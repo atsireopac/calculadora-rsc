@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora RSC - Reconhecimento de Saberes e Competências</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> Calculadora RSC</h1>
+            <p>Reconhecimento de Saberes e Competências - TAE</p>
+        </header>
+
+        <!-- Painel de Resultados Fixo -->
+        <div class="resultado-panel-fixo" id="resultado-panel">
+            <div class="resultado-content">
+                <div class="resultados-header">
+                    <h2><i class="fas fa-calculator"></i> Resultado RSC</h2>
+                    <div class="total-pontos" id="total-pontos">0</div>
+                    <div class="nivel-atual" id="nivel-atual">Sem nível</div>
+                </div>
+                
+                <div class="progresso-niveis" id="progresso-niveis">
+                    <h4><i class="fas fa-chart-line"></i> Progresso</h4>
+                    <div class="progresso-bars"></div>
+                </div>
+                
+                <div class="competencias-selecionadas" id="competencias-selecionadas-painel">
+                    <h4><i class="fas fa-check-circle"></i> Selecionadas (<span id="count-selecionadas">0</span>)</h4>
+                    <div class="lista-selecionadas" id="lista-selecionadas"></div>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <div class="controles">
+            <div class="escolaridade-section">
+                <h3><i class="fas fa-graduation-cap"></i> Nível de Escolaridade</h3>
+                <select id="nivel-escolaridade" class="escolaridade-select">
+                    <option value="">Selecione seu nível de escolaridade</option>
+                    <option value="fund-incompleto">Ensino Fundamental Incompleto</option>
+                    <option value="fund-completo">Ensino Fundamental Completo</option>
+                    <option value="medio-tecnico">Ensino Médio/Técnico</option>
+                    <option value="graduacao">Graduação</option>
+                    <option value="pos-graduacao">Pós-graduação</option>
+                    <option value="mestrado">Mestrado</option>
+                    <option value="doutorado">Doutorado</option>
+                </select>
+            </div>
+            <div class="controles-grid">
+                <div class="busca-container">
+                    <input type="text" id="busca-competencia" placeholder="Buscar competências...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="btn btn-secondary" id="btn-limpar">
+                    <i class="fas fa-eraser"></i> Limpar Tudo
+                </button>
+                <button class="btn btn-success" id="btn-exportar">
+                    <i class="fas fa-download"></i> Exportar Relatório
+                </button>
+            </div>
+        </div>
+
+        <!-- Formulário de Competências -->
+        <div class="formulario-competencias">
+            <h2><i class="fas fa-list-check"></i> Marque suas Competências</h2>
+            
+            <form id="form-competencias">
+                <!-- Formação Acadêmica -->
+                <div class="categoria-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Formação Acadêmica e Pedagógica</h3>
+                    <div class="competencias-grid">
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.0" data-categoria="formacao" id="graduacao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Graduação</strong>
+                                    <span class="pontos">1.0 pts</span>
+                                    <p>Curso de graduação na área de atuação ou áreas afins</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.5" data-categoria="formacao" id="pos_graduacao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Pós-graduação lato sensu</strong>
+                                    <span class="pontos">0.5 pts</span>
+                                    <p>Especialização, MBA ou curso de pós-graduação lato sensu</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.5" data-categoria="formacao" id="mestrado">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Mestrado</strong>
+                                    <span class="pontos">1.5 pts</span>
+                                    <p>Curso de mestrado na área de atuação ou áreas afins</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.0" data-categoria="formacao" id="doutorado">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Doutorado</strong>
+                                    <span class="pontos">2.0 pts</span>
+                                    <p>Curso de doutorado na área de atuação ou áreas afins</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.0" data-categoria="formacao" id="pos_doutorado">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Pós-doutorado</strong>
+                                    <span class="pontos">1.0 pts</span>
+                                    <p>Programa de pós-doutorado na área de atuação</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiência Profissional -->
+                <div class="categoria-section">
+                    <h3><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
+                    <div class="competencias-grid">
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.1" data-categoria="experiencia" id="exp_publica">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Experiência no Serviço Público (por mês)</strong>
+                                    <span class="pontos">0.1 pts/mês</span>
+                                    <p>Tempo de experiência em órgãos públicos na área de atuação</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="exp_publica">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.05" data-categoria="experiencia" id="exp_privada">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Experiência na Iniciativa Privada (por mês)</strong>
+                                    <span class="pontos">0.05 pts/mês</span>
+                                    <p>Tempo de experiência em empresas privadas na área de atuação</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="exp_privada">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.2" data-categoria="experiencia" id="cargo_chefia">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Exercício de Cargo de Chefia (por mês)</strong>
+                                    <span class="pontos">0.2 pts/mês</span>
+                                    <p>Tempo exercendo função de chefia, coordenação ou direção</p>
+                                    <input type="number" class="quantidade-input" placeholder="Meses" min="0" max="600" data-for="cargo_chefia">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.3" data-categoria="experiencia" id="consultoria">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atividade de Consultoria (por projeto)</strong>
+                                    <span class="pontos">0.3 pts/projeto</span>
+                                    <p>Prestação de serviços de consultoria na área de especialização</p>
+                                    <input type="number" class="quantidade-input" placeholder="Projetos" min="0" max="100" data-for="consultoria">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capacitação e Desenvolvimento -->
+                <div class="categoria-section">
+                    <h3><i class="fas fa-book-open"></i> Capacitação e Desenvolvimento</h3>
+                    <div class="competencias-grid">
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.1" data-categoria="capacitacao" id="curso_capacitacao">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Cursos de Capacitação (por hora)</strong>
+                                    <span class="pontos">0.1 pts/hora</span>
+                                    <p>Participação em cursos de capacitação relacionados à área</p>
+                                    <input type="number" class="quantidade-input" placeholder="Horas" min="0" max="2000" data-for="curso_capacitacao">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.2" data-categoria="capacitacao" id="evento_tecnico">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Participação em Eventos Técnicos</strong>
+                                    <span class="pontos">0.2 pts/evento</span>
+                                    <p>Congressos, seminários, workshops na área de atuação</p>
+                                    <input type="number" class="quantidade-input" placeholder="Eventos" min="0" max="100" data-for="evento_tecnico">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.5" data-categoria="capacitacao" id="palestrante">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação como Palestrante</strong>
+                                    <span class="pontos">0.5 pts/palestra</span>
+                                    <p>Ministrar palestras em eventos técnicos ou acadêmicos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Palestras" min="0" max="100" data-for="palestrante">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.1" data-categoria="capacitacao" id="instrutor">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Atuação como Instrutor (por hora)</strong>
+                                    <span class="pontos">0.1 pts/hora</span>
+                                    <p>Ministrar cursos ou treinamentos na área de especialização</p>
+                                    <input type="number" class="quantidade-input" placeholder="Horas" min="0" max="2000" data-for="instrutor">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produção Técnica e Científica -->
+                <div class="categoria-section">
+                    <h3><i class="fas fa-flask"></i> Produção Técnica e Científica</h3>
+                    <div class="competencias-grid">
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.0" data-categoria="producao" id="artigo_periodico">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Artigo em Periódico</strong>
+                                    <span class="pontos">1.0 pts/artigo</span>
+                                    <p>Publicação de artigos em revistas técnicas ou científicas</p>
+                                    <input type="number" class="quantidade-input" placeholder="Artigos" min="0" max="100" data-for="artigo_periodico">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="2.0" data-categoria="producao" id="livro_autoria">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Livro - Autoria</strong>
+                                    <span class="pontos">2.0 pts/livro</span>
+                                    <p>Publicação de livro como autor principal</p>
+                                    <input type="number" class="quantidade-input" placeholder="Livros" min="0" max="50" data-for="livro_autoria">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.5" data-categoria="producao" id="capitulo_livro">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Capítulo de Livro</strong>
+                                    <span class="pontos">0.5 pts/capítulo</span>
+                                    <p>Publicação de capítulo em livro técnico ou científico</p>
+                                    <input type="number" class="quantidade-input" placeholder="Capítulos" min="0" max="100" data-for="capitulo_livro">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.3" data-categoria="producao" id="trabalho_evento">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Trabalho em Evento Científico</strong>
+                                    <span class="pontos">0.3 pts/trabalho</span>
+                                    <p>Apresentação de trabalhos em congressos ou eventos</p>
+                                    <input type="number" class="quantidade-input" placeholder="Trabalhos" min="0" max="100" data-for="trabalho_evento">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.5" data-categoria="producao" id="patente">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Patente ou Registro</strong>
+                                    <span class="pontos">1.5 pts/registro</span>
+                                    <p>Registro de patente ou propriedade intelectual</p>
+                                    <input type="number" class="quantidade-input" placeholder="Registros" min="0" max="50" data-for="patente">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conhecimento em Idiomas -->
+                <div class="categoria-section">
+                    <h3><i class="fas fa-language"></i> Conhecimento em Idiomas</h3>
+                    <div class="competencias-grid">
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.2" data-categoria="idiomas" id="idioma_basico">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Idioma Estrangeiro - Nível Básico</strong>
+                                    <span class="pontos">0.2 pts/idioma</span>
+                                    <p>Conhecimento básico em idioma estrangeiro</p>
+                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_basico">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.4" data-categoria="idiomas" id="idioma_intermediario">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Idioma Estrangeiro - Nível Intermediário</strong>
+                                    <span class="pontos">0.4 pts/idioma</span>
+                                    <p>Conhecimento intermediário em idioma estrangeiro</p>
+                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_intermediario">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.6" data-categoria="idiomas" id="idioma_avancado">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Idioma Estrangeiro - Nível Avançado</strong>
+                                    <span class="pontos">0.6 pts/idioma</span>
+                                    <p>Conhecimento avançado em idioma estrangeiro</p>
+                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_avancado">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.0" data-categoria="idiomas" id="idioma_fluente">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Idioma Estrangeiro - Fluente</strong>
+                                    <span class="pontos">1.0 pts/idioma</span>
+                                    <p>Fluência comprovada em idioma estrangeiro</p>
+                                    <input type="number" class="quantidade-input" placeholder="Idiomas" min="0" max="10" data-for="idioma_fluente">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conhecimentos Tecnológicos -->
+                <div class="categoria-section">
+                    <h3><i class="fas fa-laptop-code"></i> Conhecimentos Tecnológicos</h3>
+                    <div class="competencias-grid">
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.5" data-categoria="tecnologia" id="certificacao_ti">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Certificação em TI</strong>
+                                    <span class="pontos">0.5 pts/certificação</span>
+                                    <p>Certificações técnicas em tecnologia da informação</p>
+                                    <input type="number" class="quantidade-input" placeholder="Certificações" min="0" max="50" data-for="certificacao_ti">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="0.3" data-categoria="tecnologia" id="sistema_especializado">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Conhecimento em Sistema Especializado</strong>
+                                    <span class="pontos">0.3 pts/sistema</span>
+                                    <p>Domínio de sistemas específicos da área de atuação</p>
+                                    <input type="number" class="quantidade-input" placeholder="Sistemas" min="0" max="50" data-for="sistema_especializado">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="competencia-item">
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" data-pontos="1.0" data-categoria="tecnologia" id="desenvolvimento_sistema">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="competencia-info">
+                                    <strong>Desenvolvimento de Sistema</strong>
+                                    <span class="pontos">1.0 pts/projeto</span>
+                                    <p>Participação no desenvolvimento de sistemas ou aplicações</p>
+                                    <input type="number" class="quantidade-input" placeholder="Projetos" min="0" max="50" data-for="desenvolvimento_sistema">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
