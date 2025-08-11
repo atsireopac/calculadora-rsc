@@ -491,9 +491,8 @@ function exportarRelatorio() {
         return;
     }
     
-    const relatorio = gerarRelatorio();
-    baixarRelatorio(relatorio);
-    mostrarNotificacao('Relatório exportado com sucesso!', 'success');
+    gerarRelatorioPDF();
+    mostrarNotificacao('Relatório PDF exportado com sucesso!', 'success');
 }
 
 // Gerar relatório
@@ -564,6 +563,164 @@ function gerarRelatorio() {
 }
 
 // Baixar relatório
+// Gerar relatório em PDF
+function gerarRelatorioPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    const agora = new Date();
+    const dataFormatada = agora.toLocaleDateString('pt-BR');
+    const horaFormatada = agora.toLocaleTimeString('pt-BR');
+    const timestamp = agora.toISOString().slice(0, 19).replace(/[:-]/g, '').replace('T', '_');
+    
+    let yPosition = 20;
+    const pageWidth = doc.internal.pageSize.width;
+    const margin = 20;
+    const maxWidth = pageWidth - (margin * 2);
+    
+    // Título principal
+    doc.setFontSize(18);
+    doc.setFont(undefined, 'bold');
+    doc.text('RELATÓRIO DE AVALIAÇÃO RSC-TAE', pageWidth / 2, yPosition, { align: 'center' });
+    yPosition += 15;
+    
+    // Data e hora
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+    doc.text(`Data: ${dataFormatada} às ${horaFormatada}`, pageWidth / 2, yPosition, { align: 'center' });
+    yPosition += 20;
+    
+    // Linha separadora
+    doc.setLineWidth(0.5);
+    doc.line(margin, yPosition, pageWidth - margin, yPosition);
+    yPosition += 15;
+    
+    // Resumo geral
+    doc.setFontSize(14);
+    doc.setFont(undefined, 'bold');
+    doc.text('RESUMO GERAL', margin, yPosition);
+    yPosition += 10;
+    
+    doc.setFontSize(11);
+    doc.setFont(undefined, 'normal');
+    doc.text(`Total de Pontos: ${totalPontos.toFixed(3)}`, margin, yPosition);
+    yPosition += 7;
+    doc.text(`Total de Itens Selecionados: ${competenciasSelecionadas.size}`, margin, yPosition);
+    yPosition += 7;
+    
+    // Determinar nível
+    let nivelAtual = 'Não atinge nenhum nível';
+    let preRequisitoAtual = '';
+    const totalItens = competenciasSelecionadas.size;
+    
+    for (const [nivel, config] of Object.entries(NIVEIS_RSC)) {
+        if (totalPontos >= config.minPontos && totalItens >= config.minItens) {
+            nivelAtual = `${nivel} - ${config.iq}`;
+            preRequisitoAtual = config.preRequisito;
+        }
+    }
+    
+    doc.text(`Nível RSC: ${nivelAtual}`, margin, yPosition);
+    yPosition += 7;
+    if (preRequisitoAtual) {
+        doc.text(`Pré-requisito de Escolaridade: ${preRequisitoAtual}`, margin, yPosition);
+        yPosition += 7;
+    }
+    yPosition += 10;
+    
+    // Competências por categoria
+    const categorias = new Map();
+    competenciasSelecionadas.forEach(comp => {
+        const categoria = comp.categoria;
+        if (!categorias.has(categoria)) {
+            categorias.set(categoria, []);
+        }
+        categorias.get(categoria).push(comp);
+    });
+    
+    // Título das competências
+    doc.setFontSize(14);
+    doc.setFont(undefined, 'bold');
+    doc.text('COMPETÊNCIAS SELECIONADAS', margin, yPosition);
+    yPosition += 5;
+    
+    // Linha separadora
+    doc.setLineWidth(0.5);
+    doc.line(margin, yPosition, pageWidth - margin, yPosition);
+    yPosition += 15;
+    
+    categorias.forEach((competencias, categoria) => {
+        // Verificar se precisa de nova página
+        if (yPosition > 250) {
+            doc.addPage();
+            yPosition = 20;
+        }
+        
+        // Nome da categoria
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'bold');
+        const categoriaNome = getCategoriaDisplayName(categoria).toUpperCase();
+        doc.text(categoriaNome, margin, yPosition);
+        yPosition += 8;
+        
+        // Competências da categoria
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'normal');
+        
+        competencias.forEach(comp => {
+            if (yPosition > 270) {
+                doc.addPage();
+                yPosition = 20;
+            }
+            
+            let texto = `• ${comp.nome}`;
+            if (comp.quantidade > 1) {
+                texto += ` (${comp.quantidade} unidades)`;
+            }
+            texto += ` - ${comp.pontosTotal.toFixed(3)} pontos`;
+            
+            // Quebrar texto se for muito longo
+            const linhas = doc.splitTextToSize(texto, maxWidth - 10);
+            linhas.forEach(linha => {
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+                doc.text(linha, margin + 5, yPosition);
+                yPosition += 5;
+            });
+        });
+        
+        // Subtotal da categoria
+        const totalCategoria = competencias.reduce((sum, comp) => sum + comp.pontosTotal, 0);
+        doc.setFont(undefined, 'bold');
+        doc.text(`Subtotal: ${totalCategoria.toFixed(3)} pontos`, margin + 5, yPosition);
+        doc.setFont(undefined, 'normal');
+        yPosition += 15;
+    });
+    
+    // Total final
+    if (yPosition > 250) {
+        doc.addPage();
+        yPosition = 20;
+    }
+    
+    yPosition += 10;
+    doc.setLineWidth(1);
+    doc.line(margin, yPosition, pageWidth - margin, yPosition);
+    yPosition += 10;
+    
+    doc.setFontSize(14);
+    doc.setFont(undefined, 'bold');
+    doc.text(`TOTAL GERAL: ${totalPontos.toFixed(3)} PONTOS`, margin, yPosition);
+    yPosition += 8;
+    doc.text(`NÍVEL RSC: ${nivelAtual}`, margin, yPosition);
+    
+    // Salvar o PDF
+    doc.save(`relatorio_rsc_${timestamp}.pdf`);
+}
+
+// Função antiga mantida para compatibilidade (não utilizada)
 function baixarRelatorio(conteudo) {
     const blob = new Blob([conteudo], { type: 'text/plain;charset=utf-8' });
     const url = window.URL.createObjectURL(blob);
