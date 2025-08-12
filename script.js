@@ -68,7 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Configurar event listeners
 function inicializarEventListeners() {
-    // Event listeners para checkboxes
+    // Event listeners para checkboxes usando delegação de eventos
+    document.addEventListener('change', function(event) {
+        if (event.target.type === 'checkbox' && event.target.hasAttribute('data-pontos')) {
+            handleCheckboxChange(event);
+        }
+    });
+    
+    // Também manter os listeners diretos como fallback
     const checkboxes = document.querySelectorAll('input[type="checkbox"][data-pontos]');
     
     checkboxes.forEach(checkbox => {
@@ -125,6 +132,16 @@ function inicializarEventListeners() {
     
     if (btnExportar) {
         btnExportar.addEventListener('click', exportarRelatorio);
+    }
+
+    // Event listener para card mobile (toque para expandir/recolher)
+    const cardMobile = document.getElementById('resultado-card-mobile');
+    if (cardMobile) {
+        cardMobile.addEventListener('click', toggleCardMobile);
+        cardMobile.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            toggleCardMobile(e);
+        });
     }
 }
 
@@ -208,7 +225,8 @@ function mostrarTodasCompetencias() {
     });
 }
 
-function handleCheckboxChange(event) {    const checkbox = event.target;
+function handleCheckboxChange(event) {
+    const checkbox = event.target;
     const competenciaId = checkbox.id;
     const pontosPorUnidade = parseFloat(checkbox.dataset.pontos) || 0;
     const categoria = checkbox.dataset.categoria || 'geral';
@@ -339,6 +357,7 @@ function atualizarResultados() {
     atualizarNivelRSC();
     atualizarListaSelecionadas();
     atualizarProgressoNiveis();
+    atualizarResultadosMobile();
 }
 
 // Calcular total de pontos
@@ -893,4 +912,119 @@ function criarAnimacaoConfete() {
             container.remove();
         }
     }, 6000);
+}
+
+// Função para alternar card mobile
+function toggleCardMobile(event) {
+    // Prevenir que cliques em botões ou inputs ativem o toggle
+    if (event.target.tagName === 'BUTTON' || event.target.tagName === 'INPUT' || event.target.tagName === 'SELECT') {
+        return;
+    }
+    
+    const card = document.getElementById('resultado-card-mobile');
+    if (!card) return;
+    
+    const isCollapsed = card.classList.contains('collapsed');
+    
+    if (isCollapsed) {
+        card.classList.remove('collapsed');
+    } else {
+        card.classList.add('collapsed');
+    }
+    
+    // Adicionar feedback visual temporário
+    card.style.transform = 'scale(0.98)';
+     setTimeout(() => {
+         card.style.transform = '';
+     }, 150);
+}
+
+// Função para atualizar resultados mobile
+function atualizarResultadosMobile() {
+    // Calcular pontos totais diretamente
+    const pontosTotais = Array.from(competenciasSelecionadas.values())
+        .reduce((total, comp) => total + comp.pontosTotal, 0);
+    const pontosTruncados = Math.floor(pontosTotais * 1000) / 1000;
+    
+    // Atualizar card mobile principal - pontos totais
+    const mobileCardPontos = document.getElementById('total-pontos-mobile');
+    if (mobileCardPontos) {
+        mobileCardPontos.textContent = `${pontosTruncados.toFixed(2)} pts`;
+    }
+
+    // Atualizar card mobile principal - nível atual
+    const mobileCardNivel = document.getElementById('nivel-atual-mobile');
+    if (mobileCardNivel) {
+        const nivelAtualElement = document.getElementById('nivel-atual');
+        const nivelAtual = nivelAtualElement ? nivelAtualElement.textContent : 'Sem nível';
+        mobileCardNivel.textContent = nivelAtual;
+    }
+    
+    // Atualizar barra inferior fixa - pontos totais
+    const mobileBottomPontos = document.getElementById('mobile-total-pontos');
+    if (mobileBottomPontos) {
+        mobileBottomPontos.textContent = `${pontosTruncados.toFixed(2)} pts`;
+    }
+
+    // Atualizar barra inferior fixa - nível atual
+    const mobileBottomNivel = document.getElementById('mobile-nivel-atual');
+    if (mobileBottomNivel) {
+        const nivelAtualElement = document.getElementById('nivel-atual');
+        const nivelAtual = nivelAtualElement ? nivelAtualElement.textContent : 'Sem nível';
+        mobileBottomNivel.textContent = nivelAtual;
+    }
+
+    // Atualizar contagem de competências
+    const mobileCompetenciasCount = document.getElementById('mobile-competencias-count');
+    if (mobileCompetenciasCount) {
+        mobileCompetenciasCount.textContent = competenciasSelecionadas.size;
+    }
+
+    // Atualizar lista de competências selecionadas
+    const mobileListaSelecionadas = document.getElementById('mobile-lista-selecionadas');
+    if (mobileListaSelecionadas) {
+        mobileListaSelecionadas.innerHTML = '';
+        
+        competenciasSelecionadas.forEach((dados, id) => {
+            const item = document.createElement('div');
+            item.className = 'item-selecionado-mobile';
+            
+            const nome = getCompetenciaNome(id);
+            const nomeResumido = nome.length > 40 ? nome.substring(0, 40) + '...' : nome;
+            
+            item.innerHTML = `
+                <span>${nomeResumido}</span>
+                <span class="pontos">${dados.pontosTotal.toFixed(3)} pts</span>
+            `;
+            
+            mobileListaSelecionadas.appendChild(item);
+        });
+        
+        if (competenciasSelecionadas.size === 0) {
+            mobileListaSelecionadas.innerHTML = '<div style="text-align: center; opacity: 0.7; font-style: italic;">Nenhuma competência selecionada</div>';
+        }
+    }
+    
+    // Atualizar progresso mobile
+    const progressoBarsMobile = document.querySelector('.progresso-bars-mobile');
+    if (progressoBarsMobile) {
+        progressoBarsMobile.innerHTML = '';
+        
+        Object.entries(NIVEIS_RSC).forEach(([nivel, config]) => {
+            const bar = document.createElement('div');
+            bar.className = 'progresso-bar-mobile';
+            
+            const atingido = pontosTruncados >= config.minPontos;
+            if (atingido) {
+                bar.classList.add('ativo');
+            }
+            
+            bar.innerHTML = `
+                <span>${nivel}</span>
+                <span>${atingido ? '✅' : '❌'} ${config.minPontos} pts</span>
+            `;
+            
+            progressoBarsMobile.appendChild(bar);
+        });
+    }
 }

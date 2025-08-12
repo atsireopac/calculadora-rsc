@@ -799,6 +799,12 @@ body {
     }
 }
 
+/* Ocultar elementos mobile por padrão */
+.resultado-card-mobile,
+.mobile-bottom-bar {
+    display: none;
+}
+
 /* Responsividade */
 @media (max-width: 1200px) {
     .main-content {
@@ -810,14 +816,421 @@ body {
     }
 }
 
+/* Tablets - Layout híbrido */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        width: 60%;
+        margin-left: 20px;
+    }
+    
+    .resultado-panel-fixo {
+        width: 35%;
+        right: 20px;
+    }
+    
+    .resultado-panel-fixo .total-pontos {
+        font-size: 2.4em;
+    }
+    
+    .resultado-panel-fixo .resultados-header h2 {
+        font-size: 1.4em;
+    }
+    
+    /* Botões e inputs otimizados para tablet */
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+    
+    .checkbox-label {
+        padding: 8px;
+        margin: -8px;
+    }
+    
+    .checkmark {
+        width: 26px;
+        height: 26px;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 10px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Garantir que todos os elementos ocupem a largura total */
+    * {
+        box-sizing: border-box !important;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .main-content {
+        width: 100% !important;
+        padding: 5px !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
+}
+
+/* Ocultar barra mobile por padrão */
+.mobile-bottom-bar {
+    display: none;
+}
+
+/* Ocultar elementos mobile por padrão */
+.mobile-action-buttons,
+.mobile-action-btn,
+.resultado-card-mobile {
+    display: none;
+}
+
+/* Media query específica para dispositivos maiores como Samsung Galaxy S20 Ultra */
+@media (max-width: 915px) and (min-width: 376px) {
+    .container {
+        padding: 10px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Garantir que todos os elementos ocupem a largura total */
+    * {
+        box-sizing: border-box !important;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 0 80px 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .main-content {
+        width: 100% !important;
+        padding: 10px !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
+    
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Ocultar painel fixo em mobile */
+    .resultado-panel-fixo {
+        display: none !important;
+    }
+
+    /* Barra inferior fixa para mobile */
+    .mobile-bottom-bar {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        padding: 12px 20px !important;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1) !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        min-height: 65px !important;
+    }
+
+    .mobile-score-display {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-score-points {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .mobile-score-level {
+        font-size: 13px;
+        opacity: 0.9;
+        margin: 0;
+    }
+
+    .mobile-action-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .mobile-action-btn {
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .mobile-action-btn:hover {
+        background: rgba(255,255,255,0.3);
+        transform: translateY(-1px);
+    }
+
+    .mobile-action-btn i {
+        font-size: 13px;
+    }
+    
+    /* Card de resultados mobile */
+    .resultado-card-mobile {
+        display: block !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 15px;
+        color: white;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Ajustar espaçamento das seções */
+    .controles-section,
+    .competencias-section {
+        margin-bottom: 15px !important;
+        width: 100% !important;
+    }
+    
+    /* Garantir que formulários ocupem toda largura */
+    .form-group,
+    .competencia-item,
+    .categoria-section {
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .header h1 {
         font-size: 2rem;
     }
+    
+    /* Ocultar painel fixo em mobile */
+    .resultado-panel-fixo {
+        display: none;
+    }
+
+    /* Barra inferior fixa para mobile */
+    .mobile-bottom-bar {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        padding: 10px 15px !important;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1) !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        min-height: 60px !important;
+    }
+
+    .mobile-score-display {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-score-points {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .mobile-score-level {
+        font-size: 12px;
+        opacity: 0.9;
+        margin: 0;
+    }
+
+    .mobile-action-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .mobile-action-btn {
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .mobile-action-btn:hover {
+        background: rgba(255,255,255,0.3);
+        transform: translateY(-1px);
+    }
+
+    .mobile-action-btn i {
+        font-size: 12px;
+    }
+
+    /* Adicionar padding bottom ao body para compensar a barra fixa */
+    body {
+        padding-bottom: 80px !important;
+    }
+
+    /* Ajustar espaçamento do conteúdo principal */
+    .main-content {
+        padding: 10px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Reduzir espaçamento das seções */
+    .controles-section,
+    .competencias-section {
+        margin-bottom: 15px !important;
+    }
+    
+    /* Card de resultados mobile */
+    .resultado-card-mobile {
+        display: block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px 0 25px 0;
+        color: white;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .resultado-card-mobile.collapsed {
+        padding: 15px 20px;
+    }
+    
+    .resultado-card-mobile.collapsed .resultado-detalhes {
+        display: none;
+    }
+    
+    .resultado-card-mobile .resultado-resumo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .resultado-card-mobile.collapsed .resultado-resumo {
+        margin-bottom: 0;
+    }
+    
+    .resultado-card-mobile .total-pontos-mobile {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+    }
+    
+    .resultado-card-mobile .nivel-atual-mobile {
+        background: rgba(255,255,255,0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .resultado-card-mobile .expand-indicator {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .resultado-card-mobile.collapsed .expand-indicator::after {
+        content: "👆";
+    }
+    
+    .resultado-card-mobile:not(.collapsed) .expand-indicator::after {
+        content: "👇";
+    }
+    
+    .resultado-card-mobile .resultado-detalhes {
+        border-top: 1px solid rgba(255,255,255,0.2);
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+    
+    /* Estilos específicos para elementos mobile */
+    .progresso-bars-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .progresso-bar-mobile {
+        background: rgba(255,255,255,0.2);
+        border-radius: 10px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .progresso-bar-mobile.ativo {
+        background: rgba(255,255,255,0.3);
+        font-weight: bold;
+    }
+    
+    .lista-selecionadas-mobile {
+        max-height: 200px;
+        overflow-y: auto;
+        margin-top: 10px;
+    }
+    
+    .item-selecionado-mobile {
+        background: rgba(255,255,255,0.1);
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .item-selecionado-mobile .pontos {
+         font-weight: bold;
+         color: #FFD700;
+     }
     
     .controles-grid {
         grid-template-columns: 1fr;
@@ -854,30 +1267,154 @@ body {
         left: 15px;
         right: 15px;
         max-width: none;
+        top: 140px;
+    }
+    
+    /* Melhorar área de toque dos checkboxes */
+    .checkbox-label {
+        padding: 10px;
+        margin: -10px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .checkmark {
+        width: 28px;
+        height: 28px;
+        margin-top: 0;
+    }
+    
+    /* Botões maiores para mobile */
+    .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    
+    /* Input de busca maior */
+    .busca-input {
+        padding: 12px 16px;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    
+    /* Inputs de quantidade maiores */
+    .quantidade-input {
+        padding: 10px;
+        font-size: 1rem;
+        min-height: 44px;
+        min-width: 80px;
     }
 }
 
 @media (max-width: 480px) {
     .header {
-        padding: 20px;
+        padding: 15px;
     }
     
     .header h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+    
+    .header p {
+        font-size: 0.9rem;
+    }
+    
+    /* Painel de resultados ainda mais compacto */
+    .resultado-panel-fixo {
+        padding: 12px;
+        transform: translateY(-75%);
+    }
+    
+    .resultado-panel-fixo .total-pontos {
+        font-size: 1.8em;
+    }
+    
+    .resultado-panel-fixo .resultados-header h2 {
+        font-size: 1.3em;
+    }
+    
+    body {
+        padding-top: 100px;
     }
     
     .competencia-card,
     .resultado-card {
-        padding: 15px;
+        padding: 12px;
+        margin-bottom: 12px;
     }
     
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        padding: 15px;
     }
     
     .categoria-titulo {
-        font-size: 1.2rem;
-        padding: 12px 15px;
+        font-size: 1.1rem;
+        padding: 10px 12px;
+    }
+    
+    /* Competências mais compactas */
+    .competencia-item {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+    
+    .competencia-info strong {
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+    
+    .competencia-info p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-top: 6px;
+    }
+    
+    .pontos {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+    
+    /* Controles de escolaridade mais compactos */
+    .escolaridade-select {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+    
+    /* Botões de controle menores mas ainda tocáveis */
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        margin: 4px;
+    }
+    
+    /* Inputs ainda menores mas funcionais */
+    .quantidade-input {
+        padding: 8px;
+        font-size: 0.9rem;
+        min-width: 70px;
+    }
+    
+    /* Busca mais compacta */
+    .busca-input {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    
+    /* Alertas/notificações ajustadas */
+    #alert-container {
+        top: 120px;
+        left: 10px;
+        right: 10px;
+    }
+    
+    /* Footer responsivo */
+    footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
     }
 }
 

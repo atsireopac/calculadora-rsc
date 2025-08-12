@@ -65,6 +65,29 @@
             </div>
         </div>
 
+        <!-- Card de Resultados Mobile -->
+        <div class="resultado-card-mobile collapsed" id="resultado-card-mobile">
+            <div class="resultado-resumo">
+                <div>
+                    <div class="total-pontos-mobile" id="total-pontos-mobile">0 pts</div>
+                    <div class="nivel-atual-mobile" id="nivel-atual-mobile">Sem nível</div>
+                </div>
+                <div class="expand-indicator"></div>
+            </div>
+            
+            <div class="resultado-detalhes">
+                <div class="progresso-niveis-mobile" id="progresso-niveis-mobile">
+                    <h4><i class="fas fa-chart-line"></i> Progresso por Nível</h4>
+                    <div class="progresso-bars-mobile"></div>
+                </div>
+                
+                <div class="competencias-selecionadas-mobile" id="competencias-selecionadas-mobile">
+                    <h4><i class="fas fa-check-circle"></i> Competências Selecionadas (<span id="count-selecionadas-mobile">0</span>)</h4>
+                    <div class="lista-selecionadas-mobile" id="lista-selecionadas-mobile"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Formulário de Competências -->
         <div class="formulario-competencias">
             <h2><i class="fas fa-list-check"></i> Marque suas Competências</h2>
@@ -2948,6 +2971,24 @@ atividades pedagógicos, eventos e cursos.</p>
         <br>
         Os cálculos apresentados são estimativas e podem não refletir valores oficiais.
     </footer>
+
+    <!-- Barra inferior fixa para mobile -->
+    <div class="mobile-bottom-bar">
+        <div class="mobile-score-display">
+            <div class="mobile-score-points" id="mobile-total-pontos">0.00 pts</div>
+            <div class="mobile-score-level" id="mobile-nivel-atual">Sem nível</div>
+        </div>
+        <div class="mobile-action-buttons">
+            <button class="mobile-action-btn" onclick="limparTudo()">
+                <i class="fas fa-trash"></i>
+                Limpar
+            </button>
+            <button class="mobile-action-btn" onclick="exportarRelatorio()">
+                <i class="fas fa-download"></i>
+                Exportar
+            </button>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
