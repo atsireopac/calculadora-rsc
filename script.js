@@ -669,6 +669,11 @@ function gerarRelatorio() {
 }
 
 // Baixar relatório
+// Função auxiliar para formatar números com vírgula
+function formatarNumeroComVirgula(numero) {
+    return numero.toFixed(3).replace('.', ',');
+}
+
 // Gerar relatório em PDF
 function gerarRelatorioPDF() {
     const { jsPDF } = window.jspdf;
@@ -709,27 +714,59 @@ function gerarRelatorioPDF() {
     
     doc.setFontSize(11);
     doc.setFont(undefined, 'normal');
-    doc.text(`Total de Pontos: ${totalPontos.toFixed(3)}`, margin, yPosition);
+    doc.text(`Total de Pontos: ${formatarNumeroComVirgula(totalPontos)}`, margin, yPosition);
     yPosition += 7;
     doc.text(`Total de Itens Selecionados: ${competenciasSelecionadas.size}`, margin, yPosition);
     yPosition += 7;
     
-    // Determinar nível
-    let nivelAtual = 'Não atinge nenhum nível';
-    let preRequisitoAtual = '';
+    // Validar requisitos baseados na escolaridade selecionada
     const totalItens = competenciasSelecionadas.size;
+    const niveisPermitidos = ESCOLARIDADE_MAPPING[nivelEscolaridade] || [];
     
+    let nivelAtingido = null;
+    let requisitosAtendidos = true;
+    let motivosNaoAtendimento = [];
+    
+    // Verificar se há níveis compatíveis com a escolaridade
     for (const [nivel, config] of Object.entries(NIVEIS_RSC)) {
-        if (totalPontos >= config.minPontos && totalItens >= config.minItens) {
-            nivelAtual = `${nivel} - ${config.iq}`;
-            preRequisitoAtual = config.preRequisito;
+        if (niveisPermitidos.includes(nivel)) {
+            if (totalPontos >= config.minPontos && totalItens >= config.minItens) {
+                nivelAtingido = { nivel, config };
+            } else {
+                // Verificar quais requisitos não foram atendidos
+                if (totalPontos < config.minPontos) {
+                    motivosNaoAtendimento.push('pontuação');
+                }
+                if (totalItens < config.minItens) {
+                    motivosNaoAtendimento.push('quantidade de itens');
+                }
+                break; // Para no primeiro nível não atingido
+            }
         }
     }
     
-    doc.text(`Nível RSC: ${nivelAtual}`, margin, yPosition);
-    yPosition += 7;
-    if (preRequisitoAtual) {
-        doc.text(`Pré-requisito de Escolaridade: ${preRequisitoAtual}`, margin, yPosition);
+    // Exibir informações de nível apenas se os requisitos foram atendidos
+    if (nivelAtingido) {
+        doc.text(`Nível RSC: ${nivelAtingido.nivel} - ${nivelAtingido.config.iq}`, margin, yPosition);
+        yPosition += 7;
+        doc.text(`Pré-requisito de Escolaridade: ${nivelAtingido.config.preRequisito}`, margin, yPosition);
+        yPosition += 7;
+    } else {
+        // Mostrar mensagem de requisitos não atendidos
+        const motivosUnicos = [...new Set(motivosNaoAtendimento)];
+        let mensagem = 'Requisitos não atendidos: ';
+        
+        if (motivosUnicos.length === 2) {
+            mensagem += 'pontuação e quantidade de itens necessárias';
+        } else if (motivosUnicos.includes('pontuação')) {
+            mensagem += 'pontuação necessária';
+        } else if (motivosUnicos.includes('quantidade de itens')) {
+            mensagem += 'quantidade de itens necessárias';
+        } else {
+            mensagem = 'Nenhum nível RSC atingido';
+        }
+        
+        doc.text(mensagem, margin, yPosition);
         yPosition += 7;
     }
     yPosition += 10;
@@ -783,7 +820,7 @@ function gerarRelatorioPDF() {
             if (comp.quantidade > 1) {
                 texto += ` (${comp.quantidade} unidades)`;
             }
-            texto += ` - ${comp.pontosTotal.toFixed(3)} pontos`;
+            texto += ` - ${formatarNumeroComVirgula(comp.pontosTotal)} pontos`;
             
             // Quebrar texto se for muito longo
             const linhas = doc.splitTextToSize(texto, maxWidth - 10);
@@ -800,7 +837,7 @@ function gerarRelatorioPDF() {
         // Subtotal da categoria
         const totalCategoria = competencias.reduce((sum, comp) => sum + comp.pontosTotal, 0);
         doc.setFont(undefined, 'bold');
-        doc.text(`Subtotal: ${totalCategoria.toFixed(3)} pontos`, margin + 5, yPosition);
+        doc.text(`Subtotal: ${formatarNumeroComVirgula(totalCategoria)} pontos`, margin + 5, yPosition);
         doc.setFont(undefined, 'normal');
         yPosition += 15;
     });
@@ -818,9 +855,21 @@ function gerarRelatorioPDF() {
     
     doc.setFontSize(14);
     doc.setFont(undefined, 'bold');
-    doc.text(`TOTAL GERAL: ${totalPontos.toFixed(3)} PONTOS`, margin, yPosition);
+    doc.text(`TOTAL GERAL: ${formatarNumeroComVirgula(totalPontos)} PONTOS`, margin, yPosition);
     yPosition += 8;
-    doc.text(`NÍVEL RSC: ${nivelAtual}`, margin, yPosition);
+    
+    // Mostrar status final baseado na escolaridade selecionada
+    let statusFinal = 'Requisitos não atendidos';
+    
+    for (const [nivel, config] of Object.entries(NIVEIS_RSC)) {
+        if (niveisPermitidos.includes(nivel) && 
+            totalPontos >= config.minPontos && 
+            competenciasSelecionadas.size >= config.minItens) {
+            statusFinal = `Requisitos atendidos para ${nivel} - ${config.iq}`;
+        }
+    }
+    
+    doc.text(statusFinal, margin, yPosition);
     
     // Salvar o PDF
     doc.save(`relatorio_rsc_${timestamp}.pdf`);
