@@ -869,9 +869,19 @@ body {
 
     body {
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 60px 0 80px 0 !important;
         width: 100% !important;
         overflow-x: hidden !important;
+    }
+    
+    /* Mostrar card fixo no topo para mobile */
+    .mobile-top-score-card {
+        display: block !important;
+    }
+    
+    /* Ocultar painel fixo em mobile */
+    .resultado-panel-fixo {
+        display: none !important;
     }
 
     .main-content {
@@ -890,8 +900,46 @@ body {
 /* Ocultar elementos mobile por padrão */
 .mobile-action-buttons,
 .mobile-action-btn,
-.resultado-card-mobile {
+.resultado-card-mobile,
+.mobile-top-score-card {
     display: none;
+}
+
+/* Card de pontuação fixo no topo para mobile */
+.mobile-top-score-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-top-score-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.mobile-top-score-points {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.mobile-top-score-level {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.2;
 }
 
 /* Media query específica para dispositivos maiores como Samsung Galaxy S20 Ultra */
@@ -911,9 +959,14 @@ body {
 
     body {
         margin: 0 !important;
-        padding: 0 0 80px 0 !important;
+        padding: 60px 0 80px 0 !important;
         width: 100% !important;
         overflow-x: hidden !important;
+    }
+    
+    /* Mostrar card fixo no topo para mobile */
+    .mobile-top-score-card {
+        display: block !important;
     }
 
     .main-content {

@@ -1022,6 +1022,20 @@ function atualizarResultadosMobile() {
         const nivelAtual = nivelAtualElement ? nivelAtualElement.textContent : 'Sem nível';
         mobileBottomNivel.textContent = nivelAtual;
     }
+    
+    // Atualizar card fixo no topo - pontos totais
+    const mobileTopPontos = document.getElementById('mobile-top-total-pontos');
+    if (mobileTopPontos) {
+        mobileTopPontos.textContent = `${pontosTruncados.toFixed(2).replace('.', ',')} pts`;
+    }
+
+    // Atualizar card fixo no topo - nível atual
+    const mobileTopNivel = document.getElementById('mobile-top-nivel-atual');
+    if (mobileTopNivel) {
+        const nivelAtualElement = document.getElementById('nivel-atual');
+        const nivelAtual = nivelAtualElement ? nivelAtualElement.textContent : 'Sem nível';
+        mobileTopNivel.textContent = nivelAtual;
+    }
 
     // Atualizar contagem de competências
     const mobileCompetenciasCount = document.getElementById('mobile-competencias-count');
