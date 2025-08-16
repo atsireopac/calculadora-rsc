@@ -407,9 +407,12 @@ function atualizarNivelRSC() {
     // Adicionar classe especial se requisitos foram cumpridos
     if (nivelAlcancado) {
         classeCSS += ' requisitos-cumpridos';
-        // Disparar animação de confete apenas se mudou de estado
+        // Disparar animação de confete e mensagem apenas se mudou de estado
         if (!nivelElement.classList.contains('requisitos-cumpridos')) {
-            setTimeout(() => criarAnimacaoConfete(), 300);
+            setTimeout(() => {
+                criarAnimacaoConfete();
+                mostrarNotificacao('🎉 Parabéns! Você atingiu a pontuação necessária para o nível RSC!', 'success');
+            }, 300);
         }
     }
     
@@ -1031,10 +1034,42 @@ function atualizarResultadosMobile() {
 
     // Atualizar card fixo no topo - nível atual
     const mobileTopNivel = document.getElementById('mobile-top-nivel-atual');
-    if (mobileTopNivel) {
+    const mobileTopCard = document.querySelector('.mobile-top-score-card');
+    if (mobileTopNivel && mobileTopCard) {
         const nivelAtualElement = document.getElementById('nivel-atual');
         const nivelAtual = nivelAtualElement ? nivelAtualElement.textContent : 'Sem nível';
         mobileTopNivel.textContent = nivelAtual;
+        
+        // Verificar se requisitos foram atingidos para aplicar efeito visual
+        const totalItens = competenciasSelecionadas.size;
+        let nivelAlcancado = false;
+        
+        if (nivelEscolaridade) {
+            const niveisPermitidos = ESCOLARIDADE_MAPPING[nivelEscolaridade] || [];
+            
+            for (const [nivel, config] of Object.entries(NIVEIS_RSC)) {
+                if (pontosTruncados >= config.minPontos && 
+                    totalItens >= config.minItens && 
+                    niveisPermitidos.includes(nivel)) {
+                    nivelAlcancado = true;
+                    break;
+                }
+            }
+        }
+        
+        // Aplicar efeito visual verde e disparar confetes se requisitos atingidos
+        if (nivelAlcancado) {
+            if (!mobileTopCard.classList.contains('requisitos-cumpridos')) {
+                mobileTopCard.classList.add('requisitos-cumpridos');
+                // Disparar animação de confete e mensagem de parabéns
+                setTimeout(() => {
+                    criarAnimacaoConfete();
+                    mostrarNotificacao('🎉 Parabéns! Você atingiu a pontuação necessária para o nível RSC!', 'success');
+                }, 300);
+            }
+        } else {
+            mobileTopCard.classList.remove('requisitos-cumpridos');
+        }
     }
 
     // Atualizar contagem de competências
