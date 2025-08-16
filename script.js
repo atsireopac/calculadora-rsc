@@ -369,7 +369,7 @@ function calcularTotalPontos() {
     if (totalElement) {
         // Truncar para 3 casas decimais sem arredondamento
         const totalTruncado = Math.floor(totalPontos * 1000) / 1000;
-        totalElement.textContent = totalTruncado.toFixed(3);
+        totalElement.textContent = totalTruncado.toFixed(3).replace('.', ',');
     }
 }
 
@@ -437,7 +437,7 @@ function atualizarListaSelecionadas() {
                 <span class="competencia-nome">${comp.nome}</span>
                 <span class="competencia-detalhes">
                     ${comp.quantidade > 1 ? `${comp.quantidade}x ` : ''}
-                    <span class="competencia-pontos">${comp.pontosTotal.toFixed(3)} pts</span>
+                    <span class="competencia-pontos">${comp.pontosTotal.toFixed(3).replace('.', ',')} pts</span>
                 </span>
             </div>
         `)
@@ -474,7 +474,7 @@ function atualizarProgressoNiveis() {
                         <span class="nivel-requisito">${config.preRequisito}</span>
                     </div>
                     <div class="nivel-detalhes">
-                        <small>Pontos: ${totalPontos.toFixed(3)}/${config.minPontos} | Itens: ${totalItens}/${config.minItens}</small>
+                        <small>Pontos: ${totalPontos.toFixed(3).replace('.', ',')}/${config.minPontos} | Itens: ${totalItens}/${config.minItens}</small>
                     </div>
                     <div class="progresso-bar">
                         <div class="progresso-fill" style="width: ${Math.min(progressoPontos, progressoItens)}%"></div>
@@ -547,7 +547,7 @@ function limparTudo() {
                 // Resetar total de pontos
                 const totalElement = document.getElementById('total-pontos');
                 if (totalElement) {
-                    totalElement.textContent = '0.000';
+                    totalElement.textContent = '0,000';
                 }
                 
                 // Resetar nível atual
@@ -612,7 +612,7 @@ function gerarRelatorio() {
     relatorio += `=====================================\n\n`;
     
     relatorio += `RESUMO GERAL\n`;
-    relatorio += `Total de Pontos: ${totalPontos.toFixed(3)}\n`;
+    relatorio += `Total de Pontos: ${totalPontos.toFixed(3).replace('.', ',')}\n`;
     relatorio += `Total de Itens Selecionados: ${competenciasSelecionadas.size}\n`;
     
     // Determinar nível
@@ -654,15 +654,15 @@ function gerarRelatorio() {
             if (comp.quantidade > 1) {
                 relatorio += ` (${comp.quantidade} unidades)`;
             }
-            relatorio += ` - ${comp.pontosTotal.toFixed(3)} pontos\n`;
+            relatorio += ` - ${comp.pontosTotal.toFixed(3).replace('.', ',')} pontos\n`;
         });
         
         const totalCategoria = competencias.reduce((sum, comp) => sum + comp.pontosTotal, 0);
-        relatorio += `Subtotal: ${totalCategoria.toFixed(3)} pontos\n`;
+        relatorio += `Subtotal: ${totalCategoria.toFixed(3).replace('.', ',')} pontos\n`;
     });
     
     relatorio += `\n=====================================\n`;
-    relatorio += `TOTAL GERAL: ${totalPontos.toFixed(3)} PONTOS\n`;
+    relatorio += `TOTAL GERAL: ${totalPontos.toFixed(3).replace('.', ',')} PONTOS\n`;
     relatorio += `NÍVEL RSC: ${nivelAtual}\n`;
     
     return relatorio;
@@ -998,7 +998,7 @@ function atualizarResultadosMobile() {
     // Atualizar card mobile principal - pontos totais
     const mobileCardPontos = document.getElementById('total-pontos-mobile');
     if (mobileCardPontos) {
-        mobileCardPontos.textContent = `${pontosTruncados.toFixed(2)} pts`;
+        mobileCardPontos.textContent = `${pontosTruncados.toFixed(2).replace('.', ',')} pts`;
     }
 
     // Atualizar card mobile principal - nível atual
@@ -1012,7 +1012,7 @@ function atualizarResultadosMobile() {
     // Atualizar barra inferior fixa - pontos totais
     const mobileBottomPontos = document.getElementById('mobile-total-pontos');
     if (mobileBottomPontos) {
-        mobileBottomPontos.textContent = `${pontosTruncados.toFixed(2)} pts`;
+        mobileBottomPontos.textContent = `${pontosTruncados.toFixed(2).replace('.', ',')} pts`;
     }
 
     // Atualizar barra inferior fixa - nível atual
@@ -1043,7 +1043,7 @@ function atualizarResultadosMobile() {
             
             item.innerHTML = `
                 <span>${nomeResumido}</span>
-                <span class="pontos">${dados.pontosTotal.toFixed(3)} pts</span>
+                <span class="pontos">${dados.pontosTotal.toFixed(3).replace('.', ',')} pts</span>
             `;
             
             mobileListaSelecionadas.appendChild(item);
